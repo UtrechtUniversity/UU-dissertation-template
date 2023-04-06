@@ -1,0 +1,91 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%		~~~~ EDITOR'S NOTE ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This file contains the cover pages these are rather basic and depend on the imagery used
+%                       - a change to your own cover image is needed
+%                       - be mindfull of some tweaking
+%
+% This is the PhD thesis of Laurens P. Stoop in LaTeX
+%                       - Comments, remarks and more: email me at laurensstoop@protonmail.com
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%	 	 ~~~~ END OF: EDITOR'S NOTE ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%            ~~~~ Cover ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Titlepage enviroment is used for some commands
+\begin{titlepage}
+
+        %% This can be used to set a background image (for instance a base colour)
+        %               - the oversize (1.07) is used to make sure that the image bleeds into the side
+        %               - opacity is something to set
+        \tikz[remember picture,overlay] \node[opacity=0.8,inner sep=0pt] at (current page.center){\includegraphics[width=1.07\paperwidth,height=1.07\paperheight]{FrontMatter/Cover/CoverBackground}};
+
+
+        %% we center all text
+        \begin{center}
+
+
+        %% Text color is changed for readability
+        %               - options are: white/black
+        %               - additional colours are defined in the stylesheet
+        \color{white}
+
+        %% Print the title (ussually only the title is given)
+        %               - Explicit control over fontsize is used to make it fit nicely
+        {\makeatletter
+                \largetitlestyle\fontsize{1.2cm}{13cm}\selectfont\@title
+                \makeatother}
+
+        %% Print the optional subtitle
+        %               - Explicit control over fontsize is used to make it fit nicely
+        {\makeatletter
+                \ifx\@subtitle\undefined\else
+                \bigskip
+                \largetitlestyle\fontsize{0.8cm}{13cm}\selectfont\@subtitle
+                \fi
+                \makeatother}
+
+
+        %% Additional whitespace for ease of eye
+        \vfill
+
+
+        %% This can be used to set a foreground image
+        %               - Ussually some tweaking with vertical space is needed to place it exactly
+        \begin{figure}[H]
+%        	\vspace*{-3.5cm}
+        	\makebox[\linewidth]{
+                		\includegraphics[width=0.6\textwidth, clip, trim={0cm 0cm 0cm 0cm}]{FrontMatter/Cover/Cover}
+                	}
+%        	\vspace*{1.0cm}
+        \end{figure}
+
+
+
+        %% Additional whitespace for ease of eye
+        \vspace*{2\bigskipamount}
+
+
+         %% Text color is changed for readability
+        \color{white}
+
+        %% Print the name of the author.
+        {\makeatletter
+                \largetitlefont\Large\bfseries
+                \largetitlestyle\fontsize{24}{13cm}\selectfont\@firstname~\@lastname
+                \makeatother}
+
+
+        %% Additional whitespace for ease of eye
+        \vspace*{2\bigskipamount}
+        \end{center}
+
+
+\end{titlepage}

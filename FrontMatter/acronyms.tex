@@ -1,0 +1,57 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%		~~~~ EDITOR'S NOTE ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This file contains the fancy definition of acronyms
+%                       - requires a full compilation cycle to work properly
+%                       - when defined here, the handle can be used in text with \ac{<handle>}
+%
+% This is the PhD thesis of Laurens P. Stoop in LaTeX
+%                       - Comments, remarks and more: email me at laurensstoop@protonmail.com
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%	 	 ~~~~ END OF: EDITOR'S NOTE ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%            ~~~~ Example ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% For a given handle, an acronym's full definition can be provided with:
+%        \DeclareAcronym{<handle>}{
+%                short=<acronym>,
+%                long=<full definition>,
+%        }
+%
+% In text then used with \ac{<handle>}
+%       - Full form first time (forced with \acf{<handle>} )
+%       - Short form after this (forced with \acs{<handle>} )
+%       - Long form  forced with \acl{<handle>}
+% If needed specifically
+
+%% Example used in the Introduction
+\DeclareAcronym{eu}{
+        short=EU,
+        long=European Union
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%            ~~~~ Acronym definition ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\DeclareAcronym{WR}{
+        short=WR,
+        long=Weather Regimes
+}
+
+%\DeclareAcronym{eu}{
+%        short=EU,
+%        long=European Union
+%}

@@ -1,0 +1,348 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%		~~~~ EDITOR'S NOTE ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the PhD thesis of Laurens P. Stoop in LaTeX
+%
+% For the initial implementation big thanks to Douwe M. van Willigen.
+% The original dissertation class was implemented by the TU Delft.
+%
+% This document is inteded to be a style guide to a nice and fancy LaTeX thesis.
+%			- Comments are used to explain code (% sign)
+%			- Make it your own by selecting only the things you want
+%			- If in possible options you meet a couple of dots (...) more options are available (see documentation of pkg)
+%
+% Comments, remarks and more: email me at laurensstoop@protonmail.com
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%	 	 ~~~~ END OF: EDITOR'S NOTE ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%            ~~~~ Preamble ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% The document class dissertation is used
+\documentclass[]{dissertation}
+
+%% The thesis stylesheet, includes more package specifics
+\input{stylesheet}
+
+%% Include the acronyms definition
+\include{Frontmatter/acronyms}
+
+
+%% Author and Title for use everywhere
+\title[or an approach from multiple fields]{AC\lightning DC}
+\author{Laurens~Persijn}{Stoop}
+
+
+
+\begin{document}
+%% strong use of \include{file} to reduce compilation time in draft stage
+%               - tex-files of chapters are located in (sub-)folders (FrontMatter, MainMatter, BackMatter)
+%               - for filling Lorem-Ipsum is used with the \lipsum[num-num] command
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%            ~~~~ FrontMatter ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This includes everything before the introduction
+%               - Cover
+%               - Titlepages [required]
+%               - Table of Contents [required]
+%               - Prologue
+%               - Glossary or list of acronyms
+%
+% Some PhD include the following at the begining instead of in the backmatter
+%               - Summary  [required]
+%               - Samenvatting  [required]
+%               - Acknowledgements
+%
+% The order of these chapters, of the content is not 100% set in stone, after the cover and title-pages, there is some variation
+
+%% Use Arabic numerals for the page numbers of the chapters.
+\pagenumbering{roman}
+
+%% Use Frontmatter to set some styleproperties
+\frontmatter
+
+
+%% Cover
+\include{FrontMatter/cover}
+
+%% Titlepage
+\include{FrontMatter/title}
+
+
+%% Table of Contents
+%       - Set depth of ToC  at this point to 1
+%       - Start all counters after the ToC
+\setcounter{tocdepth}{1}
+\tableofcontents
+\startcontents
+
+
+%% Print the acronym chapter here
+\printacronyms
+
+
+
+%% Dedication setting
+%       - The (optional) dedication can be used to thank someone or display a significant quotation.
+%       - a empty & clear page is needed
+\clearpage
+\thispagestyle{empty}
+\dedication{\epigraph{Science is a wonderful thing \\ if one does not have to earn one's living at it.}{Albert Einstein}}
+
+
+
+
+
+%% Prologue or preface
+\include{FrontMatter/preface}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%            ~~~~ MainMatter ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This includes at its core the following
+%               - Introduction
+%               - Publishable chapters;
+%                       - here structured in multiple Parts
+%               - Conclusion
+%
+% The location of the bibliography should be considered. This could be for:
+%               - each seperate chapter (paper)
+%               - each part
+%               - Only once, near the end
+%
+%% Main Matter style settings
+% Use Arabic numerals for the page numbers of the chapters.
+\pagenumbering{arabic}
+% caller for the general style definitions
+\mainmatter
+% Turn on thumb indices.
+\thumbtrue
+
+
+
+%%%%%%%%%%%%%%
+%%      ~~~~ PART 0 ~~~~
+%%%%%%%%%%%%%%
+%
+%% Set the Part name and properties
+%\stepcounter{thumbcounter}
+%\setcounter{colorcounter}{1}
+%\part[\color{thumb\arabic{thumbcounter}}Introduction]{Introduction}\label{part:intro}
+%\chaptoc
+
+%% Introduction
+\include{MainMatter/introduction}
+
+
+%% Overview of contributions of the articles used
+\include{MainMatter/contributions}
+
+
+
+
+%%%%%%%%%%%%%%
+%%      ~~~~ PART 1 ~~~~
+%%%%%%%%%%%%%%
+%
+%% Set the Part name and properties
+\stepcounter{thumbcounter}
+\setcounter{colorcounter}{1}
+\part[\color{thumb\arabic{thumbcounter}}Properties of a dissertation class]{Properties of a dissertation class}\label{part:first}
+
+%% short desctription of contents of Part
+\lipsum[1-3]
+
+% Set part table of contents on a new page
+\newpage
+\chaptoc
+
+
+
+%% Include a chapter based on a paper
+\include{MainMatter/paper1/paper1-main}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%
+%%      ~~~~ PART 2 ~~~~
+%%%%%%%%%%%%%%
+%
+%% Set the Part name and properties
+\stepcounter{thumbcounter}
+\setcounter{colorcounter}{2}
+\part[\color{thumb\arabic{thumbcounter}}An example of a second part]{An example of a second part}\label{part:second}
+
+
+%% short desctription of contents of Part
+\lipsum[1-3]
+
+% Set part table of contents on a new page
+\newpage
+\chaptoc
+
+
+
+
+\chapter{A filler chapter}
+\lipsum[15-29]
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%
+%%      ~~~~ PART 3 ~~~~
+%%%%%%%%%%%%%%
+%
+%% Set the Part name and properties
+\stepcounter{thumbcounter}
+\setcounter{colorcounter}{3}
+\part[\color{thumb\arabic{thumbcounter}}A third party joins the game]{A third party joins the game}\label{part:second}
+ %% short desctription of contents of Part
+\lipsum[1-3]
+
+% Set part table of contents on a new page
+\newpage
+\chaptoc
+
+
+
+
+\chapter{Some filler chapter}\label{chap:profile}
+\lipsum[30-41]
+
+And a final line.
+
+
+
+
+
+
+%% Add the conclusion style definition
+% restarting the introduction part, without calling it such
+\startcontents[chaps]
+\stepcounter{thumbcounter}
+\addtocontents{toc}{\IncCLR}
+
+%% Add the actual conclusion
+\include{MainMatter/conclusions}
+
+
+
+%% Add an optional epilogue
+\include{BackMatter/epilogue}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%            ~~~~ Appendices ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% In general this contains the following [required] chapters:
+%               - Summary (English) [semi-required]
+%               - Samenvatting (Nederlands)  [required]
+%               - List of Publications (often included)
+%               - Portfolio or courselist (required for some research schools)
+%               - short Curriculum Vitae  [required]
+%               - Acknowledgements (expected)
+%
+
+%% Back Matter style settings
+% We force to clear all floats
+\clearpage
+% Use Arabic numerals for the page numbers of the chapters.
+\pagenumbering{Roman}
+% caller for the general style definitions
+\appendix
+
+%%%%%%%%%%%%%%
+%%      ~~~~ Appendix  ~~~~
+%%%%%%%%%%%%%%
+%
+%% Set the Part name and properties
+\stepcounter{thumbcounter}
+\setcounter{colorcounter}{4}
+\part[\color{thumb\arabic{thumbcounter}}Appendix]{Appendix}\label{part:intro}
+%% short desctription of contents of Part
+\lipsum[1-3]
+
+% Set part table of contents on a new page
+\newpage
+\chaptoc
+
+
+
+%% Appendix to a chapter
+\include{BackMatter/appendix-example}
+
+
+
+
+
+%% Summary
+\include{Backmatter/summary}
+
+%% Samenvatting
+\include{Backmatter/samenvatting}
+
+
+%% Turn off thumb indices for unnumbered chapters.
+%               - It's a style choice where you turn these off
+\thumbfalse
+
+%% Turning off the chapter numbering
+\backmatter
+
+
+%% List of publications
+\include{Backmatter/publications}
+
+%% Acknowledgements
+\include{Backmatter/acknowledgements}
+
+
+%% Curriculum Vitae or About the author
+\include{Backmatter/cv}
+
+
+%% include the BackCover
+\include{BackMatter/backcover}
+
+%% Print an overview of the layout
+%\layout
+
+\end{document}
+
+

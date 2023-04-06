@@ -1,0 +1,225 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%		~~~~ EDITOR'S NOTE ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This file contains the definition of the stylesheet used within the dissertation class
+%                       -
+%
+% This is the PhD thesis of Laurens P. Stoop in LaTeX
+%                       - Comments, remarks and more: email me at laurensstoop@protonmail.com
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%	 	 ~~~~ END OF: EDITOR'S NOTE ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%            ~~~~ Stylesheet ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%								~~~~ PREAMBLE ~~~~
+%
+% In the preamble the following can be found:
+%		- Class definitions/call
+%		- Extra package invocation
+%		- Style definitions
+%		- Shortcut code for use throughout the document
+%		- \ldots
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%		Extra package invocation
+
+
+%% Redefine the behaviour of Crop based on the actual document size and some other mumbo
+\usepackage[
+% set width and height to a4 width and height + 6mm
+width=21.6truecm, height=30.3truecm,
+% use any combination of these options to add different cut markings
+cam,noinfo,
+% set the type of TeX renderer you use
+pdftex,
+% center the contents
+center
+]{crop}
+
+
+%% For access to the lightnigbolt sign
+\usepackage{wasysym}
+
+%% For access to written out month/year information
+\usepackage{datetime}
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+
+%% Create a list of acronyms.
+\usepackage{acro}
+% Set the acronyms in the PDF to link back to the acronym list
+\acsetup{make-links=true}
+
+\usepackage{layout}
+\usepackage{tocloft}
+\usepackage[parfill]{parskip}
+\usepackage[T1]{fontenc}
+\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage{import}
+%\usepackage[final]{changes}
+\usepackage{tikzscale}
+\usepackage{tikz}
+%\usepackage{dblfloatfix}
+\usepackage{lipsum}
+\usepackage{mdframed}
+
+\usepackage[many]{tcolorbox}
+
+% Package to provide a way to review
+%       - gives TeXstudio access to the tools
+%\usepackage{easyReview}
+
+
+% Definition of the bibliography and related packages
+\usepackage[square,numbers,sectionbib]{natbib}
+\usepackage{chapterbib}
+
+\usetikzlibrary{shapes,arrows,chains}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+%\pgfplotsset{plot coordinates/math parser=false}
+\newlength{\fwidth}
+\colorlet{lcnorm}{black}
+
+
+%\setlength{\oddsidemargin}{-13pt}
+%\setlength{\evensidemargin}{-10pt}
+\setlength{\voffset}{18pt}
+
+%\DeclareSIUnit{\sqrthz}{\ensuremath{\sqrt{\text{\hertz}}}}
+
+
+
+% Layout settings:
+\renewcommand{\headrulewidth}{1.5pt}% 2pt header rule
+
+\tikzset{font=\small}
+
+\pgfplotsset{compat=1.8}
+
+%% Command to add a numbered tag to an equation
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
+
+%% Small change to plot all figures with fbox, for better layout
+\LetLtxMacro\latexincludegraphics\includegraphics % save the meaning of \includegraphics
+
+% pass the image to \shadowbox
+%\renewcommand{\includegraphics}[2][]{\fbox{\latexincludegraphics[#1]{#2}}}
+
+%% Change the behavior of subscript to textmode (without the amsmath spacing)
+\begingroup\lccode`~=`!
+\lowercase{\endgroup\def~}#1{_{\mathrm{#1}}}
+
+\AtBeginDocument{\mathcode`!=\string"8000 }
+
+%%% Fixing hyphenation issues:
+\hyphenation{im-pe-dance}
+\setlength{\marginparwidth}{0pt}
+
+%% Create a macro to easily draw grids for help in positioning text
+\newcommand{\Grid}{
+	\draw[step=1.0,red,thin,xshift=1cm,yshift=1cm] (-6,-6) grid (4,4);
+	\draw[black,thick] (-5,0) grid (5,0);
+	\draw[black,thick] (0,-5) grid (0,5);
+}
+
+
+
+
+
+%% TOC
+\makeatletter
+
+\newcommand{\chaptoc}{
+	\vspace{0.6cm}
+	\startcontents[chaps]
+	\begin{tcolorbox}[
+		colframe=thumb\arabic{thumbcounter},
+		width=\linewidth,
+		enhanced,
+		top=10pt,
+		bottom=10pt,
+		nobeforeafter,
+		outer arc=0pt,
+		arc=0pt,
+		boxrule=1.2pt,
+		colback=white,
+		overlay={
+			\node[anchor=west,fill=white,inner xsep=6pt, text=thumb\arabic{thumbcounter}]
+			at ([xshift=10pt]frame.north west)
+			{\textbf{Contents}};
+		}
+		]
+		\printcontents[chaps]{}{1}{}
+	\end{tcolorbox}
+	\vspace{2cm}}
+
+
+%% Make changes to the part so that the contets end up on the titlepages
+\let\LaTeXStandardPart\part%
+\newcommand{\unstarredpart@@noopt}[1]{%
+	\unstarredpart@@opt[#1]{#1}%
+}%
+
+\newcommand{\unstarredpart@@opt}[2][]{%
+	\cleardoublepage% (For clearing content before!!!)
+	\begingroup%
+	\let\newpage\relax%
+	\LaTeXStandardPart[#1]{#2}%
+	\endgroup%
+}%
+
+\newcommand{\starredpart}[1]{%
+	\LaTeXStandardPart*{#1}%
+}%
+
+\newcommand{\unstarredpart}{%
+	\@ifnextchar[{\unstarredpart@@opt}{\unstarredpart@@noopt}%
+}%
+
+\renewcommand{\part}{%
+	\@ifstar{\starredpart}{\unstarredpart}%
+}%
+
+\makeatother
+
+
+
+
+
+
+
+
+
+
+%% Define the toc colors for the parts, and add the horizontal lines
+\renewcommand{\cftpartfont}{\hypersetup{linkcolor=thumb\arabic{colorcounter}}}
+\renewcommand{\cftpartpresnum}{\hypersetup{linkcolor=thumb\arabic{colorcounter}}}
+
+\titlecontents{part}%
+[0pt]{\stepcounter{colorcounter}\color{thumb\arabic{colorcounter}}\bfseries\large\protect\addvspace{10pt}\titlerule[1pt]\addvspace{1.3ex}}
+{}{\partname~}
+{\hfill\contentspage}%
+[\addvspace{0.7ex} {\titlerule[1pt]} \addvspace{5pt}]%
+
+\renewcommand{\cftchapfont}{\bfseries\hypersetup{linkcolor=thumb\arabic{colorcounter}}}
+\renewcommand{\cftchappagefont}{\bfseries\color{thumb\arabic{colorcounter}}}
+
+\renewcommand{\thepart}{\color{thumb\arabic{colorcounter}}\Roman{part}} % Adjust the color of the part as well
+
+\DeclareRobustCommand{\IncCLR}{\protect\stepcounter{colorcounter}}
+
+\newcounter{thumbcounter}
+\newcounter{colorcounter}

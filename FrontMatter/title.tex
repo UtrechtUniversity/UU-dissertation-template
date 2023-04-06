@@ -1,0 +1,266 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%		~~~~ EDITOR'S NOTE ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This file contains the title pages in the required Utrecht University format
+%                       - formal required text fields are included
+%                       -
+%
+% This is the PhD thesis of Laurens P. Stoop in LaTeX
+%                       - Comments, remarks and more: email me at laurensstoop@protonmail.com
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%	 	 ~~~~ END OF: EDITOR'S NOTE ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%            ~~~~ Titlepage ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% This enviroment is called as the titlepage is spread over 4 pages and therefore required
+\begin{titlepage}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%            ~~~~ Page 1 (base titlepage) ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        %% Centered title page, first page always is without style elements
+	\begin{center}
+
+		%% Some whitespace at the top.
+                \vspace*{2\bigskipamount}
+
+                %% Print the title (bold and big)
+                % To make the title fit better it could be benificial to change \Huge to \huge, \LARGE or even \Large
+                {\makeatletter
+                        \titlestyle\bfseries\Huge\@title
+                        \makeatother}
+
+                %% Print the optional subtitle.
+                % To make the subtitle fit better it could be benificial to change \LARGE to \Large or \large
+                {\makeatletter
+                        \ifx\@subtitle\undefined\else
+                        \bigskip
+                        \titlefont\titleshape\LARGE\@subtitle
+                        \fi
+                        \makeatother}
+
+                %% Fill out the page
+                \vfill
+
+                %% Print the author (bold is traditional)
+                % To make the name fit better it could be benificial to change \LARGE to \Large or \large
+                {\makeatletter
+                        \titlestyle\bfseries\LARGE\@firstname~{\titleshape\@lastname}
+                        \makeatother}
+
+                %% Extra whitespace at the bottom.
+                \vspace*{4\bigskipamount}
+
+
+	\end{center}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%            ~~~~ Page 2 (verso with CIP data) ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Any unrelevant lines should be commented or removed
+
+        %% Go to new page by forcing to clear all floats
+	\clearpage
+
+        %% Empty page style as we don't want numbers
+	\thispagestyle{empty}
+
+                %% The information is traditionally listed near the bottom
+                \vspace*{\fill}
+
+                %% Inclusion of logos of research schools (not sure if allowed)
+               	\begin{center}
+                        \includegraphics[height=0.5in]{FrontMatter/Logos/nwo}
+                        \hspace{2em}
+                        \includegraphics[height=0.5in]{FrontMatter/Logos/sikskleur}
+                \end{center}
+                \medskip
+
+                %% Include the following lines (or something similair) if the dissertation is part of a series
+                \noindent SIKS Dissertation Series No. XXX \\
+                The research reported in this thesis has been carried out under the auspices of SIKS, the Dutch Research School for Information and Knowledge Systems.
+
+                %% Additional whitespace for ease of eye
+             	\vspace{\bigskipamount}
+
+                %% Listing of book information (ISBN recommended, printerlisting ussualy required by company, credit for cover)
+               	\noindent
+               	\begin{tabular}{@{}p{0.2\textwidth}@{}p{0.8\textwidth}}
+          		\textit{ISBN:} &  000-00-0000-000-0 \\[\medskipamount]
+                	\textit{Printed by:} & Johannes Gutenberg \\[\medskipamount]
+                	\textit{Cover by:} & Beautiful cover art that captures the entire content of this thesis in a single illustration.
+                \end{tabular}
+
+                %% Additional whitespace for ease of eye
+                \medskip
+
+                %% Statement if 100\% recycled paper is used
+                \noindent This dissertation was printed on 100\% recycled paper in an effort to minimize the enviromental footprint.
+
+                %% Additional whitespace for ease of eye
+             	\vspace{\bigskipamount}
+
+                %% Copyright information
+                % Could also be inserted manually around the change of the calander year
+               	\noindent Copyright \textcopyright\ \the\year{} by {\makeatletter\@firstname~\@lastname \makeatother}
+
+               %% More restricting copyright statement
+               % This is very relevant if part is unpublished
+               All rights reserved. No part of this publication may be reproduced, stored in a retrieval system or transmitted in any form without the written permission of the copyright owner.
+
+                % At the UU it's required to publish your dissertation online
+                % Be aware that this location is subject to change
+                \noindent An electronic version of this dissertation is available at \url{https://dspace.library.uu.nl/}.
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%            ~~~~ Page 3 (Formal titlepage) ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% NB: contents here are dictated by regulations; CHECK THEM
+
+        %% Go to new page by forcing to clear all floats
+        \clearpage
+
+        %% Empty page style as we don't want numbers
+        \thispagestyle{empty}
+
+        %%
+	\begin{center}
+
+		%% some whitespace at the top
+		\vspace*{2\bigskipamount}
+
+		%% Print the title (original language).
+		{\makeatletter
+			\titlestyle\bfseries\Huge\@title
+			\makeatother}
+
+		%% Print the optional subtitle.
+		{\makeatletter
+			\ifx\@subtitle\undefined\else
+			\bigskip
+			\titlefont\titleshape\LARGE\@subtitle
+			\fi
+			\makeatother}
+
+                %% Flush the rest of the page to the bottom
+		\vfill
+
+		%% Apart from the names and dates, the following text is dictated by the doctorol degree regulations
+
+                %% If original title in not-dutch, provide it in Dutch.
+		{\LARGE\titlefont\bfseries Titel in het Nederlands}
+
+                %% Also provide a dutch optional sub-title
+                {\Large\titlefont\titleshape Sub-titel in het Nederlands}
+
+                %% Required to state that it includes a summary
+                % in Dutch if body not in Dutch
+                % in English if body in Dutch
+                (met een samenvatting in het Nederlands)
+
+                %% Include some whitespace
+		\bigskip
+		\bigskip
+
+                %% Required text by the doctoral degree regulations
+                % NB: be very mindfull of the lower case lettering used!!!
+                % NB: basically; do not change this bit
+		ter verkrijging van de graad van doctor aan de Universiteit Utrecht
+
+		op gezag van de rector magnificus, prof.dr.\ H.R.B.M.~Kummeling,
+
+		ingevolge het besluit van het college voor promoties
+
+		in het openbaar te verdedigen
+
+                %% Change to relevant date for defense
+                % written as: dayofweek(text) date(number) month(text)  year(number)
+                % if in the morning use: des ochtends te XX.XX uur (use 12-hour format)
+                % if in the afternoon use: des middags te XX.XX uur (use 12-hour format)
+                op woensdag 5 april 2023  des ochtends te 10.30 uur%/des middags te 4.15 uur
+
+                %% Include some whitespace
+		\bigskip
+		\bigskip
+
+		door
+
+                %% Include some whitespace
+		\bigskip
+		\bigskip
+
+		%% Print the full name of the author.
+		{\makeatletter
+		\Large\titlefont\bfseries\@firstname~{\titleshape\@lastname}
+		\makeatother}
+
+                %% Include some whitespace
+		\bigskip
+		\bigskip
+
+                %% Change to relevant date of birth and town
+                % NB: include country if not born in the Netherlands
+       		geboren op 5 april 2023 te Utrecht
+
+		%% Extra whitespace at the bottom.
+		\vspace*{2\bigskipamount}
+
+	\end{center}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%            ~~~~ Page 4 (co-promotor listing) ~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% NB: contents here are dictated by regulations; CHECK THEM
+
+        %% Go to new page by forcing to clear all floats
+        \clearpage
+
+        %% Empty page style as we don't want numbers
+        \thispagestyle{empty}
+
+	%% List the (co-)promotors.
+        % NB: Only use the title + initials + lastname
+	\begin{tabular}{ll}
+		Promotoren:           & Prof.\,dr.\ A.B.C.D.~Fancy \\[0.1cm]
+                                                & Prof.\,dr.\ E.F.~Pants \\[0.1cm]
+		Copromotoren:      & dr.\ G.H.~Twinkle \\[0.1cm]
+                                                & Prof.\,dr.\,ir.\ I.J.~Toes
+	\end{tabular}
+
+        %% Flush the rest of the information to the bottom
+        \vfill
+
+        %% If Joint Doctorate, then uncomment below
+        \noindent The degree is awareded as part of a Joint Doctorate with AAAAAAAA Univeristy.
+
+     	%% Extra whitespace at the bottom.
+        \vspace*{2\bigskipamount}
+
+        %% Example of a financial support statement
+        \noindent This work was support by the research project ACDC-ESM, which was financed by the Netherlands Organisation for Scientific Research under grant number 647.003.005 and supported by the stakeholders TenneT TSO B.V. and the Royal
+        Netherlands Meteorological Institute.
+
+
+\end{titlepage}
+

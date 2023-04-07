@@ -11,11 +11,12 @@ We welcome all input and any suggestions or examples using this template.
 ## Using the template
 
 The document can be compiled with
-
-  pdflatex main
-  biber MainMatter/paper1/paper1biblio
-  pdflatex main
-  pdflatex main
+```sh
+pdflatex main
+biber MainMatter/paper1/paper1biblio
+pdflatex main
+pdflatex main
+```
 
 Or by selecting the 'pdfLaTeX' and 'Biber' options in your favourite TeX editing program, respectively. Note that you have to run biber for every chapter.
 

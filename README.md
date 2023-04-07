@@ -45,22 +45,22 @@ As this is an ongoing project, the works in progress (WIP) are explicitly listed
 │   	├── Cover	  	 		<- Contains cover images
 │   	├── title.tex          	 		<- Title page content and styling (required)
 │   	├── Logos		 		<- Contains all logos used
-│   	├── acronyms.tex 		      <- Definition of acronyms used (often included)
-│   	└── preface.tex     		      <- Optional opening word (optional)
+│   	├── acronyms.tex 		        <- Definition of acronyms used (often included)
+│   	└── preface.tex     		        <- Optional opening word (optional)
 ├── MainMatter             		<- Contains all .tex files for the content from introduction to conclusion
 │   	├── introduction.tex     		<- Introduction .tex file (required)
-│   	├── contributions.tex     	      <- Overview of contributions .tex file (required, can be part of appendix, see publications.tex)
+│   	├── contributions.tex     	        <- Overview of contributions .tex file (required, can be part of appendix, see publications.tex)
 │   	├── conclusions.tex     		<- Conclusion .tex file (required)
 │   	└── paper1				<- Contains the .tex and .bib file (paper1-main) and Figures folder
 └── BackMatter           		<- Contains all .tex files for content after the conclusion
       	├── epilogue.tex        		<- Epilogue (optional)
-      	├── appendix-example.tex   	      <- Example of appendix of a MainMatter paper/chapter
-      	├── summary.tex        		      <- English summary (often included)
-      	├── samenvatting.tex        	      <- Dutch samenvatting (required)
-      	├── publications.tex        	      <- Listing method for published works (required, can be part of introduction, see contributions.tex)
-      	├── acknowledgements.tex	      <- Ackns. or Dankwoord (often included)
+      	├── appendix-example.tex   	        <- Example of appendix of a MainMatter paper/chapter
+      	├── summary.tex        		        <- English summary (often included)
+      	├── samenvatting.tex        	        <- Dutch samenvatting (required)
+      	├── publications.tex        	        <- Listing method for published works (required, can be part of introduction, see contributions.tex)
+      	├── acknowledgements.tex	        <- Ackns. or Dankwoord (often included)
       	├── cv.tex        			<- CV or about the author (required)
-   	└── backcover.tex         	      <- Styling of the back cover content
+   	└── backcover.tex         	        <- Styling of the back cover content
 
 ```
 

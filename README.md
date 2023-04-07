@@ -2,7 +2,7 @@
 
 Version 0.2.1
 
-This is a Utrecht University dissertation template for LaTeX put together by Laurens Stoop. While it is based around the TU Delft template, it should follow the required content and textual obligations as provided in the doctoral degree regulations and the 'aanwijzingen voor promovendi'. 
+This is a Utrecht University dissertation template for LaTeX. While it is based around the TU Delft template, it should follow the required content and textual obligations as provided in the doctoral degree regulations and the 'aanwijzingen voor promovendi'. 
 
 It is designed to work with all versions of LaTeX, but if you want to adhere to the TU Delft housestyle (some legacy there), you need to use XeLaTeX, as it supports TrueType and OpenType fonts. 
 

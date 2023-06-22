@@ -34,18 +34,36 @@
 %%%%		Extra package invocation
 
 
-%% Redefine the behaviour of Crop based on the actual document size and some other mumbo
-\usepackage[
-% set width and height to a4 width and height + 6mm
-width=21.6truecm, height=30.3truecm,
-% use any combination of these options to add different cut markings
-cam,noinfo,
-% set the type of TeX renderer you use
-pdftex,
-% center the contents
-center
-]{crop}
+%% CROP package
+% Redefine the behaviour of Crop based on the actual document size and some other mumbo
+% Cut marks
+% Crop marks
+%
+%\usepackage[
+%% set width and height to a4 width and height + 6mm
+%width=21.6truecm, height=30.3truecm,
+%% use any combination of these options to add different cut markings
+%cam,noinfo,
+%% set the type of TeX renderer you use
+%pdftex,
+%% center the contents
+%center
+%]{crop}
 
+
+%% This would allow for opening on left page of chapters
+%
+% First option
+%
+%\makeatletter
+%\renewcommand*\cleardoublepage{\clearpage\if@twoside
+        %        \ifodd\c@page \hbox{}\newpage\if@twocolumn\hbox{}%
+        %        \newpage\fi\fi\fi}
+%\makeatother
+%
+% Other option
+%
+%\csname @openrightfalse\endcsname
 
 %% For access to the lightnigbolt sign
 \usepackage{wasysym}

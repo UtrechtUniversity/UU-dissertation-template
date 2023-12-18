@@ -122,17 +122,17 @@
 
     \if@print
 %        \def\headerstyle{\titlefont\titleshape\bfseries}
-        \def\headerstyle{\titlefont\titleshape} %% DOUWE
+        \def\headerstyle{\titlefont\titleshape} 
     \else
         \def\headerstyle{\titlefont\titleshape}
     \fi
 
-    %% ADDED by DOUWE
+    %% ADDED by DVW
     \def\largetitlefont{\fontfamily{Roboto-LF}} %Roboto-LF or rmfamily
     \def\largetitleseries{\fontseries{m}}
     \def\largetitleshape{\fontshape{n}}
     \def\largetitlestyle{\largetitlefont\largetitleseries\largetitleshape}
-    %% end ADDED by DOUWE
+    %% end ADDED by DVW
 \else
     %% The TU Delft house style fonts are Bookman Old Style (serif) for titles
     %% and Tahoma (sans-serif) for text. Apart from these, we use Courier New

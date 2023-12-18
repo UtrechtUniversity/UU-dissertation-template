@@ -1,38 +1,82 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%		~~~~ EDITOR'S NOTE ~~~~
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% This file contains the definition of the stylesheet used within the dissertation class
-%                       -
-%
-% This is the PhD thesis of Laurens P. Stoop in LaTeX
-%                       - Comments, remarks and more: email me at laurensstoop@protonmail.com
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%	 	 ~~~~ END OF: EDITOR'S NOTE ~~~~
+%%
+%% This file contains the stylesheet
+%% 
+%% This is the PhD thesis of Laurens P. Stoop in LaTeX
+%%                       - Comments, remarks and more: email me at laurensstoop@protonmail.com
+%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%            ~~~~ Stylesheet ~~~~
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% For template only
+\usepackage{lipsum}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%								~~~~ PREAMBLE ~~~~
-%
-% In the preamble the following can be found:
-%		- Class definitions/call
-%		- Extra package invocation
-%		- Style definitions
-%		- Shortcut code for use throughout the document
-%		- \ldots
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ Extra package invocation & Settings
+
+%% For acces to special signs
+\usepackage{marvosym}
+
+
+%% For access to written out month/year information & setting this
+\usepackage{datetime}
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+
+%% Create a list of acronyms.
+\usepackage{acro}
+% Set the acronyms in the PDF to link back to the acronym list
+\acsetup{make-links=true}
+
+
+%% Allow for the page-layout to be show explicit
+\usepackage{layout}
+
+%% For better TOC's
+\usepackage{tocloft}
+
+%% For making the parskip command work better
+\usepackage[parfill]{parskip}
+
+%% Neater font encoding
+\usepackage[T1]{fontenc}
+
+%% For setting space within document
+\usepackage{setspace}
+
+
+\usepackage{import}
+%\usepackage[final]{changes}
+%\usepackage{dblfloatfix}
+
+%% To generate lipsum text
+\usepackage{lipsum}
+\usepackage{mdframed}
+
+% For nicer subfigures
+\usepackage{subcaption}
+
+% for nicer non-forced page breaks
+\usepackage{afterpage}
+
+\usepackage{bm}
+
+
+\usepackage[many]{tcolorbox}
+
+% Package to provide a way to review
+%       - gives TeXstudio access to the tools
+%\usepackage{easyReview}
+
+% for the cross-page table for the SIKS dissertation list
+\usepackage{xltabular}
+% for midrules within the SIKS dissertation list
+\usepackage{booktabs}
+
+\usepackage{csquotes}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%		Extra package invocation
-
+%%%% ~~~~ Crop & tick marks
 
 %% CROP package
 % Redefine the behaviour of Crop based on the actual document size and some other mumbo
@@ -51,84 +95,76 @@
 %]{crop}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ Left-opening pages
+
 %% This would allow for opening on left page of chapters
 %
 % First option
 %
-%\makeatletter
-%\renewcommand*\cleardoublepage{\clearpage\if@twoside
-        %        \ifodd\c@page \hbox{}\newpage\if@twocolumn\hbox{}%
-        %        \newpage\fi\fi\fi}
-%\makeatother
+% \makeatletter
+% \renewcommand*\cleardoublepage{\clearpage\if@twoside
+%        \ifodd\c@page \hbox{}\newpage\if@twocolumn\hbox{}%
+%        \newpage\fi\fi\fi}
+% \makeatother
 %
 % Other option
-%
-%\csname @openrightfalse\endcsname
+% This fixes the page to open chapters / parts on (i.e. not forced right)
+% \csname @openrightfalse\endcsname
 
-%% For access to the lightnigbolt sign
-\usepackage{wasysym}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ Bibliography
 
-%% For access to written out month/year information
-\usepackage{datetime}
-\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+%% Definition of the bibliography and related packages
+% \usepackage[style=authoryear-comp,backend=biber,maxbibnames=10]{biblatex}
+\usepackage[style=nature,backend=biber,maxbibnames=30]{biblatex}
 
-%% Create a list of acronyms.
-\usepackage{acro}
-% Set the acronyms in the PDF to link back to the acronym list
-\acsetup{make-links=true}
+%% For optional bibliography per chapter
+%\usepackage{chapterbib}
+%\setlength\bibitemsep{1.5\itemsep}
+%\renewcommand*{\nameyeardelim}{\addcomma\space}
 
-\usepackage{layout}
-\usepackage{tocloft}
-\usepackage[parfill]{parskip}
-\usepackage[T1]{fontenc}
-\usepackage{subcaption}
-\usepackage{setspace}
-\usepackage{import}
-%\usepackage[final]{changes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ Tikz settings
+
+%% Getting Tikz
 \usepackage{tikzscale}
 \usepackage{tikz}
-%\usepackage{dblfloatfix}
-\usepackage{lipsum}
-\usepackage{mdframed}
 
-\usepackage[many]{tcolorbox}
-
-% Package to provide a way to review
-%       - gives TeXstudio access to the tools
-%\usepackage{easyReview}
-
-
-% Definition of the bibliography and related packages
-\usepackage[square,numbers,sectionbib]{natbib}
-\usepackage{chapterbib}
-
+%% Tikz libraries
 \usetikzlibrary{shapes,arrows,chains}
 
-\usepackage{pgfplots}
-\pgfplotsset{compat=newest}
+%\usepackage{pgfplots}
+%\pgfplotsset{compat=newest}
 %\pgfplotsset{plot coordinates/math parser=false}
 \newlength{\fwidth}
 \colorlet{lcnorm}{black}
 
+% Better enumeration
+%\usepackage[inline]{enumitem}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ Page tweaking
 
 %\setlength{\oddsidemargin}{-13pt}
 %\setlength{\evensidemargin}{-10pt}
 \setlength{\voffset}{18pt}
 
-%\DeclareSIUnit{\sqrthz}{\ensuremath{\sqrt{\text{\hertz}}}}
 
+
+%% Remove the marginpar
+\setlength{\marginparwidth}{0pt}
 
 
 % Layout settings:
 \renewcommand{\headrulewidth}{1.5pt}% 2pt header rule
 
-\tikzset{font=\small}
 
-\pgfplotsset{compat=1.8}
-
-%% Command to add a numbered tag to an equation
-\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ Figure tweaking
 
 %% Small change to plot all figures with fbox, for better layout
 \LetLtxMacro\latexincludegraphics\includegraphics % save the meaning of \includegraphics
@@ -136,28 +172,22 @@
 % pass the image to \shadowbox
 %\renewcommand{\includegraphics}[2][]{\fbox{\latexincludegraphics[#1]{#2}}}
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ Subcript text
+
 %% Change the behavior of subscript to textmode (without the amsmath spacing)
 \begingroup\lccode`~=`!
 \lowercase{\endgroup\def~}#1{_{\mathrm{#1}}}
-
 \AtBeginDocument{\mathcode`!=\string"8000 }
 
-%%% Fixing hyphenation issues:
-\hyphenation{im-pe-dance}
-\setlength{\marginparwidth}{0pt}
-
-%% Create a macro to easily draw grids for help in positioning text
-\newcommand{\Grid}{
-	\draw[step=1.0,red,thin,xshift=1cm,yshift=1cm] (-6,-6) grid (4,4);
-	\draw[black,thick] (-5,0) grid (5,0);
-	\draw[black,thick] (0,-5) grid (0,5);
-}
 
 
 
 
-
-%% TOC
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ Table of Contents (TOC)
 \makeatletter
 
 \newcommand{\chaptoc}{
@@ -185,14 +215,19 @@
 	\vspace{2cm}}
 
 
-%% Make changes to the part so that the contets end up on the titlepages
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ Styling the Part
+
+%% Make changes to the part so that the contents end up on the titlepages
 \let\LaTeXStandardPart\part%
 \newcommand{\unstarredpart@@noopt}[1]{%
 	\unstarredpart@@opt[#1]{#1}%
 }%
 
 \newcommand{\unstarredpart@@opt}[2][]{%
-	\cleardoublepage% (For clearing content before!!!)
+%	\cleardoublepage% (For clearing content before!!) Original
+        \clearpage% (For clearing content before!!!)
 	\begingroup%
 	\let\newpage\relax%
 	\LaTeXStandardPart[#1]{#2}%
@@ -215,13 +250,6 @@
 
 
 
-
-
-
-
-
-
-
 %% Define the toc colors for the parts, and add the horizontal lines
 \renewcommand{\cftpartfont}{\hypersetup{linkcolor=thumb\arabic{colorcounter}}}
 \renewcommand{\cftpartpresnum}{\hypersetup{linkcolor=thumb\arabic{colorcounter}}}
@@ -241,3 +269,4 @@
 
 \newcounter{thumbcounter}
 \newcounter{colorcounter}
+

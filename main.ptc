@@ -1,0 +1,46 @@
+\acswitchoff 
+\babel@toc {british}{}\relax 
+\ttl@starttoc {default@1}
+\contentsline {chapter}{Acronyms}{ix}{chapter*.1}%
+\contentsline {chapter}{Preface}{xi}{chapter*.2}%
+\contentsline {part}{\color {thumb1}I\hspace {1em}Introduction title in the TOC}{1}{part.1}%
+\ttl@starttoc {chaps@1}
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Some context}{3}{section.1.1}%
+\contentsline {part}{\color {thumb2}II\hspace {1em}Properties of a dissertation class}{5}{part.2}%
+\contentsline {chapter}{\numberline {2}Dissertation class description}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Document Structure}{7}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Title Page}{7}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Chapters}{8}{section.2.3}%
+\contentsline {section}{\numberline {2.4}\textbackslash section\{\ldots \}}{9}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}\textbackslash subsection\{\ldots \}}{9}{subsection.2.4.1}%
+\contentsline {subsubsection}{\textbackslash subsubsection\{\ldots \}}{9}{subsubsection*.3}%
+\contentsline {paragraph}{\textbackslash paragraph\{\ldots \}}{9}{paragraph*.4}%
+\contentsline {section}{\numberline {2.5}Fonts and Colors}{9}{section.2.5}%
+\contentsline {chapter}{\numberline {3}A filler chapter}{10}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Some filler chapter}{15}{chapter.4}%
+\contentsline {part}{\color {thumb3}III\hspace {1em}An example of another part}{18}{part.3}%
+\ttl@stoptoc {chaps@2}
+\ttl@starttoc {chaps@3}
+\contentsline {chapter}{\numberline {5}More filler chapters}{21}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Some filler chapter}{23}{chapter.6}%
+\contentsline {part}{\color {thumb4}IV\hspace {1em}Concluding remarks}{26}{part.4}%
+\contentsline {chapter}{\numberline {7}Conclusion}{27}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Some context}{27}{section.7.1}%
+\contentsline {chapter}{Epilogue}{29}{chapter*.5}%
+\contentsline {part}{\color {thumb5}V\hspace {1em}Appendices}{31}{part.5}%
+\ttl@stoptoc {chaps@3}
+\ttl@starttoc {chaps@4}
+\contentsline {chapter}{References}{31}{section*.6}%
+\contentsline {chapter}{\numberline {A}addition to chapter x}{33}{appendix.A}%
+\contentsline {part}{\color {thumb6}VI\hspace {1em}Backmatter}{35}{part.6}%
+\ttl@stoptoc {chaps@4}
+\ttl@starttoc {chaps@5}
+\contentsline {chapter}{\numberline {B}English summary}{37}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Nederlandse samenvatting}{39}{appendix.C}%
+\babel@toc {dutch}{}\relax 
+\babel@toc {british}{}\relax 
+\contentsline {chapter}{List of scientific publications}{41}{appendix*.7}%
+\contentsline {chapter}{Curriculum Vit\ae }{43}{appendix*.8}%
+\contentsline {chapter}{Acknowledgements}{45}{appendix*.9}%
+\contentsfinish 

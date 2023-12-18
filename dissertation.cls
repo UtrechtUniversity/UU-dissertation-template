@@ -23,7 +23,7 @@
 % The base class definition, we require LaTeX2e and provide the dissertation class
 % 		- Based on the  TU Delft dissertation class (v1.0) 08-07-2013
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{dissertation}[2022/03/31 v0.1 Lauren Stoop dissertation class]
+\ProvidesClass{dissertation}[2022/03/31 v0.3 Laurens Stoop dissertation class]
 
 \newif\if@nativefonts
 \DeclareOption{nativefonts}{\@nativefontstrue}
@@ -32,7 +32,11 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
 
-\LoadClass[10pt]{book}
+\LoadClass[10pt,twoside]{book}
+
+
+
+
 
 
 % Correct alignment of english text
@@ -40,8 +44,8 @@
 %		- call by english language name, i.e. 'dutch' instead of 'nederlands'
 \usepackage[british]{babel}
 
-
 \RequirePackage{amsmath}
+\RequirePackage{amsfonts}
 %\RequirePackage{amssymb}
 \RequirePackage{calc}
 \RequirePackage[small,bf]{caption}
@@ -87,8 +91,8 @@
 \RequirePackage{circuitikz}
 \RequirePackage{multicol}
 \RequirePackage{enumitem}
-\RequirePackage{pgfkeys}
-\RequirePackage{pgfplots}
+%\RequirePackage{pgfkeys}
+%\RequirePackage{pgfplots}
 
 \RequirePackage{xcolor}
 \RequirePackage{colortbl}
@@ -117,15 +121,15 @@
     \def\titlestyle{\titlefont\titleshape\bfseries}
 
     \if@print
-        \def\headerstyle{\titlefont\titleshape\bfseries}
-        %\def\headerstyle{\titlefont\titleshape} %% DOUWE
+%        \def\headerstyle{\titlefont\titleshape\bfseries}
+        \def\headerstyle{\titlefont\titleshape} %% DOUWE
     \else
         \def\headerstyle{\titlefont\titleshape}
     \fi
 
     %% ADDED by DOUWE
     \def\largetitlefont{\fontfamily{Roboto-LF}} %Roboto-LF or rmfamily
-    \def\largetitleseries{\fontseries{t}}
+    \def\largetitleseries{\fontseries{m}}
     \def\largetitleshape{\fontshape{n}}
     \def\largetitlestyle{\largetitlefont\largetitleseries\largetitleshape}
     %% end ADDED by DOUWE
@@ -303,15 +307,15 @@
 %% indices.
 \usetikzlibrary{calc}
 
-
-\definecolor{thumb0}{cmyk}{1,0.66,0,0.4}
+% Colours of the chapters
+\definecolor{thumb0}{cmyk}{1,0.66,0,0.4} % blue
 \definecolor{thumb1}{cmyk}{0.78,1,0.22,0.15} % purple
 \definecolor{thumb2}{cmyk}{0.22,0.92,0.57,0.07} % reddish
 \definecolor{thumb3}{cmyk}{0,0.55,1,0} % orange
-\definecolor{thumb4}{cmyk}{1,0.66,0,0.4}
+\definecolor{thumb4}{cmyk}{0.78,1,0.22,0.15} % purple
 \definecolor{thumb5}{cmyk}{0.78,1,0.22,0.15} % purple
-\definecolor{thumb6}{cmyk}{0.22,0.92,0.57,0.07} % reddish
-\definecolor{thumb7}{cmyk}{0,0.55,1,0} % orange
+\definecolor{thumb6}{cmyk}{1,0.66,0,0.4} % bluez
+\definecolor{thumb7}{cmyk}{1,0.66,0,0.4} % blue
 \definecolor{thumb8}{cmyk}{0,0,0,1} % black
 
 
@@ -480,13 +484,13 @@
 %% Subsubsections have the same font and color as sections and subsections, but
 %% are not preceded by a number.
 \titleformat{\subsubsection}
-    {\headerstyle}
+    {\large\headerstyle}
     {}
     {0pt}
-    {\color{title}}
+    {\color{thumb\arabic{thumbcounter}}}
 %% Subsubsections are preceded by an empty line and do not appear in the table
 %% of contents.
-\titlespacing{\subsubsection}{0pt}{\bigskipamount}{0pt}
+\titlespacing{\subsubsection}{0pt}{\baselineskip}{0pt}
 
 %% Color the bullets of the itemize environment and make the symbol of the third
 %% level a diamond instead of an asterisk.
@@ -504,7 +508,7 @@
         #1%
     \end{flushright}%
     \vspace*{\fill}%
-    \cleardoublepage%
+    \clearpage%
 }
 
 %% Define an unnumbered footnote command.
@@ -514,9 +518,9 @@
 %% title page. This is only necessary if multiple people contributed
 %% significantly to the chapter.
 \newcommand*\authors[1]{%
-    \begin{center}%
+    \begin{flushleft}%
         {\Large\bfseries #1}%
-    \end{center}%
+    \end{flushleft}%
     \vspace{2\baselineskip}%
 }
 
@@ -533,6 +537,7 @@
 
 %% The abstract environment is used for the abstract of a chapter.
 \newenvironment{abstract}{%
+\section*{Abstract}%
     \list{}{\leftmargin\rightmargin}%
     \item%
     \relax%
@@ -548,12 +553,9 @@
     \lettrine[lines=3,findent=0.2em,nindent=0pt]{\color{thumb\arabic{thumbcounter}} #1}{#2}%
 }
 
-%% Create an unnumbered reference section.
-\addto\captionsenglish{\renewcommand*\bibname{\color{thumb\arabic{thumbcounter}}References}}
-\newcommand*\references[1]{%
-    \bibliographystyle{dissertation}%
-    \bibliography{#1}%
-}
+%% Rename bibliography to reference and add colour properties
+%\renewcommand\bibname{\color{thumb\arabic{thumbcounter}}References}%
+
 
 %% Hyperlinks are cyan, except in print mode, when they are all black.
 \hypersetup{

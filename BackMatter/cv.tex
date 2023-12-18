@@ -1,72 +1,75 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%		~~~~ EDITOR'S NOTE ~~~~
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% This file contains an outline for the Curriculum Vitae
-%                       - A short CV is required
-%                       - sometimes this section is called 'About the author' and more a storyline
-%
-% This is the PhD thesis of Laurens P. Stoop in LaTeX
-%                       - Comments, remarks and more: email me at laurensstoop@protonmail.com
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%	 	 ~~~~ END OF: EDITOR'S NOTE ~~~~
+%%
+%% This file contains an outline for the Curriculum Vitae
+%% - A short CV is required
+%% - sometimes this section is called 'About the author' and more a storyline
+%% 
+%% This is the PhD thesis of Laurens P. Stoop in LaTeX
+%%                       - Comments, remarks and more: email me at laurensstoop@protonmail.com
+%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+%% Name
+\chapter{Curriculum Vit\ae}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%            ~~~~ Curriculum Vitae ~~~~
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\chapter*{Curriculum Vit\ae}
-\addcontentsline{toc}{chapter}{Curriculum Vit\ae}
-\setheader{Curriculum Vit\ae}
-
+\newpage
 %% Print the full name of the author.
 \makeatletter
 \authors{\@firstname\ {\titleshape\@lastname}}
 \makeatother
 
 \noindent
-\begin{tabular}{p{4\parindent}l}
-    14-03-1879 & Born in Ulm, Germany.
+\begin{tabular}{p{0.13\linewidth}l}
+1991 & Born in Leiden, Netherlands.
 \end{tabular}
 
 \section*{Education}
-
-\begin{tabular}{p{4\parindent}l}
-    1892--1896 & Grammar School \\
-    & Luitpold Gymnasium, M\"unich (1892--1895)\\
-    & Aurau, Switzerland (1895--1896) \\
-    \\
-    1896--1900 & Undergraduate in Mathematics \& Physics \\
-    & Eidgen\"ossische Polytechnische Schule Z\"urich \\
-    \\
-    1905 & PhD.\ Physics \\
-    & Eidgen\"ossische Polytechnische Schule Z\"urich \\
-    &
-    %% The width of the second column is the width of the page, minus the width
-    %% of the first column (4\parindent) minus four times the separation between
-    %% the start of the column and its contents.
-    \begin{minipage}{\textwidth-4\parindent-4\tabcolsep}
-        %% We divide the minipage 20/80.
-        \begin{tabular}{@{}p{0.2\linewidth}@{}p{0.8\linewidth-\tabcolsep}}
-            \textit{Thesis:} & Eine neue Bestimmung der Molek\"uldimensionen \\
-            \textit{Promotor:} & Prof.\ dr.\ A.\ Kleiner
-        \end{tabular}
-    \end{minipage}
+\begin{tabular}{p{0.15\linewidth}l}
+    2016--2018 & Masters in Climate Physics\\
+    & Utrecht University, Utrecht \\
+    & \textit{Thesis:} Blackouts are not an option\\
+    & \textit{Supervisors:} Karin van der Wiel \& Aarnout van Delden
+    \\[0.2cm]
+    2012--2016 & Bachelors in Physics and Astronomy \\
+    & Utrecht University, Utrecht \\
+    & \textit{Thesis:} Development of an extended HiSPARC framework \\
+    & \textit{Supervisors:} Alessandro Grelli \& André Mischke
+    \\[0.2cm]
+    2004--2011 &  Voorbereidend Wetenschappelijk Onderwijs (VWO) \\
+    & Stichtse Vrije School, Zeist
 \end{tabular}
 
-\section*{Awards}
-
-\begin{tabular}{p{4\parindent}l}
-    1922 & Nobel Prize in Physics \\
-    \\
-    1925 & Copley Medal \\
-    \\
-    1929 & Max Planck Medal \\
-    \\
-    1999 & Time magazine's person of the century
+\section*{Work}
+\begin{tabular}{p{0.15\linewidth}l}
+        2023--{\small present} & Data Scientist -- Weather \& Climate data specialist \\
+        & Advanced Analytics, TenneT TSO B.V.
+        \\[0.2cm]
+        2022--2023 & Lecturer \& Researcher \\
+        & Information and Computing Sciences, Utrecht University
+        \\[0.2cm]
+        2021--2023 & PhD Council member\\
+        & Information and Computing Sciences PhD Council
+        \\[0.2cm]
+        2018--2022 & PhD Candidate\\
+        & Information and Computing Sciences \& Energy and Resources, Utrecht University
+        \\[0.2cm]
+        2020--{\small present} & (External) advisor\\
+        & ENTSO-E Expert team climate (formerly: Task Force PECD)
+        \\[0.2cm]
+        2019--{\small present} & Organizing Committee member\\
+        & Next Generation challenges in Energy Climate modelling workshops
+        \\[0.2cm]
 \end{tabular}
+
+% EEX Excellence Award 2020
+
+\section*{Volunteering work}
+\begin{tabular}{p{0.15\linewidth}l}
+    2008--2023 & Guide, team leader and internal trainer \\
+    & Scouting Rambonnetgroep Zeist
+    \\[0.2cm]
+\end{tabular}
+
 

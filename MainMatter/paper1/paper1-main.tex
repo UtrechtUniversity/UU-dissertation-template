@@ -1,40 +1,54 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%		~~~~ EDITOR'S NOTE ~~~~
+%% 
+%% Paper 2: CP2 CREDI
+%%
+%% This is the PhD thesis of Laurens P. Stoop in LaTeX
+%% - Comments, remarks and more: email me at laurensstoop@protonmail.com
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \chapter{Dissertation class description}
 \label{chapter_1}
 
-%% The following annotation is customary for chapter which have already been
-%% published as a paper.
-\blfootnote{Parts of this chapter have been published in Annalen der Physik \textbf{324}, 289 (1906) \cite{Einstein1906}.}
+%%%% Published/Review/Submitted as a paper.
+\blfootnote{The contents of this chapter are under review at A FANCY JOURNAL, for which a preprint is available on arXiv~\autocite{kudela2010turbulent}.}
 
-%% It is only necessary to list the authors if multiple people contributed
-%% significantly to the chapter.
-\authors{Albert {\titleshape Einstein}}
 
-%% The '0pt' option ensures that no extra vertical space follows this epigraph,
-%% since there is another epigraph after it.
-\epigraph[0pt]{
-    Nature and nature's laws lay hid in the night; \\
-    God said `Let Newton be!' and all was light.
-}{Alexander Pope}
 
+%% RODE DRAAD STAAT
 \epigraph{
-    It did not last: the devil shouting `Ho. \\
-    Let Einstein be!' restore the status quo.
-}{Sir John Collings Squire}
+       Everything is possible, the impossible might take two days.
+}{\emph{Family motto}}
 
-\begin{abstract}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-\end{abstract}
+
+
+%% PLAIN LANGUAGE SUMMARY
+\section*{Plain Language Summary}
+In this chapter the properties of the dissertation class are described. 
+
+
+
 
 %% Start the actual chapter on a new page.
 \newpage
 
-\noindent This document is intended to be both an example of the TU Delft dissertation template for \LaTeX, as well as a short introduction to its use. It is not intended to be a general introduction to \LaTeX{} itself,\footnote{We recommend \url{http://en.wikibooks.org/wiki/LaTeX} as a reference and a starting point for new users.} and we will assume the reader to be familiar with the basics of creating and compiling documents.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ Introduction
+
+\noindent This document is intended to be both an example of the Utrecht University dissertation template for \LaTeX, as well as a short introduction to its use. It is not intended to be a general introduction to \LaTeX{} itself,\footnote{We recommend \url{http://en.wikibooks.org/wiki/LaTeX} as a reference and a starting point for new users.} and we will assume the reader to be familiar with the basics of creating and compiling documents.
 
 Instructions on how to use this template under Windows and Linux, and which \LaTeX{} packages are required, can be found in \texttt{README.txt}.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ Structure
 \section{Document Structure}
 
-\dropcap{S}{ince} a dissertation is a substantial document, it is convenient to break it up into smaller pieces. In this template we therefore give every chapter its own file. The chapters (and appendices) are gathered together in \texttt{dissertation.tex}, which is the master file describing the overall structure of the document. \texttt{dissertation.tex} starts with the line
+Since a dissertation is a substantial document, it is convenient to break it up into smaller pieces. In this template we therefore give every chapter its own file. The chapters (and appendices) are gathered together in \texttt{dissertation.tex}, which is the master file describing the overall structure of the document. \texttt{dissertation.tex} starts with the line
 
 %% We need an empty line before the quote environment to work around a bug in
 %% the lettrine package, from which the drop command is derived.
@@ -55,7 +69,7 @@ The title page is defined in \texttt{title.tex} in the \texttt{title} folder and
 
 \section{Title Page}
 
-\dropcap{T}{he} title pages are defined in \texttt{title/title.tex}, which you will have to modify according to your needs. Note that these pages are subject to the requirements of the \emph{promotieregelement} and cannot be changed at will. Apart from the names and dates, most of the Dutch text is dictated literally.
+The title pages are defined in \texttt{title/title.tex}, which you will have to modify according to your needs. Note that these pages are subject to the requirements of the \emph{promotieregelement} and cannot be changed at will. Apart from the names and dates, most of the Dutch text is dictated literally.
 
 Since the thesis title and name of the author appear several times throughout the document (on the title page, but also in, \emph{e.g.}, the preface and cv), special commands are provided so they only have to be specified once. The title (and optional subtitle) can be specified with
 
@@ -111,7 +125,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 \section{Fonts and Colors}
 
-\dropcap{T}{he} fonts used by this template depend on which version of \LaTeX{} you use. Regular \LaTeX, \emph{i.e.}, if you compile your document with with \texttt{latex}, \texttt{pslatex} or \texttt{pdflatex}, will use Utopia for text, Fourier for math and Latin Modern for sans-serif and monospaced text. However, if you want to adhere to the TU Delft house style, you will need to use \XeLaTeX, as it supports TrueType and OpenType fonts. Compiling with \texttt{xelatex} will use Bookman Old Style for titles, Tahoma for text, Courier New for monospace and Cambria for math. If you want to use \XeLaTeX, but do not want to use the TU Delft house style fonts, you can add the \texttt{nativefonts} option to the document class.
+The fonts used by this template depend on which version of \LaTeX{} you use. Regular \LaTeX, \emph{i.e.}, if you compile your document with with \texttt{latex}, \texttt{pslatex} or \texttt{pdflatex}, will use Utopia for text, Fourier for math and Latin Modern for sans-serif and monospaced text. However, if you want to adhere to the TU Delft house style, you will need to use \XeLaTeX, as it supports TrueType and OpenType fonts. Compiling with \texttt{xelatex} will use Bookman Old Style for titles, Tahoma for text, Courier New for monospace and Cambria for math. If you want to use \XeLaTeX, but do not want to use the TU Delft house style fonts, you can add the \texttt{nativefonts} option to the document class.
 
 This template supports the use of drop caps, a large colored initial at the beginning of a chapter or section, via the \texttt{\textbackslash dropcap} command:
 
@@ -144,5 +158,4 @@ as well as the accent colors
 \item\texttt{\color{tudelft-yellow}tudelft-yellow}.
 \end{itemize}
 
-\references{dissertation}
 

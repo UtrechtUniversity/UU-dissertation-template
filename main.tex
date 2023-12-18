@@ -1,174 +1,240 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%		~~~~ EDITOR'S NOTE ~~~~
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% This is the PhD thesis of Laurens P. Stoop in LaTeX
-%
-% For the initial implementation big thanks to Douwe M. van Willigen.
-% The original dissertation class was implemented by the TU Delft.
-%
-% This document is inteded to be a style guide to a nice and fancy LaTeX thesis.
-%			- Comments are used to explain code (% sign)
-%			- Make it your own by selecting only the things you want
-%			- If in possible options you meet a couple of dots (...) more options are available (see documentation of pkg)
-%
-% Comments, remarks and more: email me at laurensstoop@protonmail.com
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%	 	 ~~~~ END OF: EDITOR'S NOTE ~~~~
+%%
+%% This is the PhD thesis of Laurens P. Stoop in LaTeX
+%%
+%% Inspired by the TU Delft dissertation class, but heavily modded.
+%%
+%% This document is inteded to be a style guide to a nice and fancy LaTeX thesis.
+%% - Comments are used to explain code (% sign)
+%% - Make it your own by selecting only the things you want
+%% - If in possible options you meet a couple of dots (...) more options are available (see documentation of pkg)
+%%
+%% Comments, remarks and more: email me at laurensstoop@protonmail.com
+%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%            ~~~~ Preamble ~~~~
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% The document class dissertation is used
+%%%% documentclass: dissertation
 \documentclass[]{dissertation}
 
+%%%% Title
+%% this title will be used everywhere
+\title[or an approach from multiple fields]{A lightning start to a dissertations }
+
+
+%%%% Author
+%% this will be used everywhere
+\author{Laurens}{Stoop}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ PREAMBLE ~~~~
+%% - Stylesheet
+%% - hyphenations (opt)
+%% - shorthands (opt)
+%% - reference file
+%% - acronyms (opt)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% Stylesheet
 %% The thesis stylesheet, includes more package specifics
 \input{stylesheet}
 
-%% Include the acronyms definition
-\include{Frontmatter/acronyms}
+%% (opt) Specific Hyphenations 
+\input{hyphenations}
+
+%% (opt) Specific LaTeX shorthands
+\input{shorthand}
+
+%% Set the file with the references
+\addbibresource{references.bib}
+
+%% (opt) Include the acronyms definitions
+%\input{Frontmatter/acronyms}
 
 
-%% Author and Title for use everywhere
-\title[or an approach from multiple fields]{AC\lightning DC}
-\author{Laurens~Persijn}{Stoop}
 
 
-
+%% N.B.: Strong use of \include{file} to reduce compilation time in draft stage
+%% - tex-files of chapters are located in (sub-)folders (FrontMatter, MainMatter, BackMatter)
 \begin{document}
-%% strong use of \include{file} to reduce compilation time in draft stage
-%               - tex-files of chapters are located in (sub-)folders (FrontMatter, MainMatter, BackMatter)
-%               - for filling Lorem-Ipsum is used with the \lipsum[num-num] command
 
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%            ~~~~ FrontMatter ~~~~
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% This includes everything before the introduction
-%               - Cover
-%               - Titlepages [required]
-%               - Table of Contents [required]
-%               - Prologue
-%               - Glossary or list of acronyms
-%
-% Some PhD include the following at the begining instead of in the backmatter
-%               - Summary  [required]
-%               - Samenvatting  [required]
-%               - Acknowledgements
-%
-% The order of these chapters, of the content is not 100% set in stone, after the cover and title-pages, there is some variation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ FrontMatter ~~~~
+%% i.e. everything before the introduction
+%%
+%% - Cover (opt as part of PDF)
+%% - Dedication (opt)
+%% - Titlepages
+%% - Table of Contents
+%% - Prologue (opt)
+%% - Glossary/List of acronyms (opt)
+%%
+%% N.B.: The order of these chapters, of the content is not 100% set in stone, after the cover and title-pages, there is some variation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Use Arabic numerals for the page numbers of the chapters.
 \pagenumbering{roman}
 
-%% Use Frontmatter to set some styleproperties
-\frontmatter
 
+%%%% Cover (opt in PDF) 
+% \include{FrontMatter/cover}
 
-%% Cover
-\include{FrontMatter/cover}
-
-%% Titlepage
+%%%% Titlepages
 \include{FrontMatter/title}
 
 
-%% Table of Contents
-%       - Set depth of ToC  at this point to 1
-%       - Start all counters after the ToC
-\setcounter{tocdepth}{1}
-\tableofcontents
-\startcontents
 
-
-%% Print the acronym chapter here
-\printacronyms
-
-
-
-%% Dedication setting
-%       - The (optional) dedication can be used to thank someone or display a significant quotation.
-%       - a empty & clear page is needed
+%%%% Dedication (opt)
+%% - can be used to thank someone or display a significant quotation.
+%% - an empty & clear page should be used
 \clearpage
 \thispagestyle{empty}
 \dedication{\epigraph{Science is a wonderful thing \\ if one does not have to earn one's living at it.}{Albert Einstein}}
 
 
 
+%%%% Table of Contents
+%% - Set depth of ToC  at this point to 1
+%% - Start all counters after the ToC
+\setcounter{tocdepth}{1}
+\tableofcontents
+\startcontents
 
+%%%% Acronym listing (opt)
+\printacronyms
+\addcontentsline{toc}{chapter}{Acronyms}
+\setheader{Acronyms}
 
-%% Prologue or preface
+%%% Prologue or preface (opt)
 \include{FrontMatter/preface}
 
 
 
 
 
+%% Force clear pages to make it neat
+\cleardoublepage
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%            ~~~~ MainMatter ~~~~
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% This includes at its core the following
-%               - Introduction
-%               - Publishable chapters;
-%                       - here structured in multiple Parts
-%               - Conclusion
-%
-% The location of the bibliography should be considered. This could be for:
-%               - each seperate chapter (paper)
-%               - each part
-%               - Only once, near the end
-%
-%% Main Matter style settings
-% Use Arabic numerals for the page numbers of the chapters.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ MainMatter ~~~~
+%% i.e. the core chapters with an introduction and conclusion
+%%
+%% - Introduction
+%% - Core chapters
+%% - Conclusion
+%%
+%% Here parts are used to provide additional structure to the thesis, this is optional
+%%
+%% N.B.: No chapter TOC is used for the introduction
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% Main Matter style settings
+%% Use Arabic numerals for the page numbers of the chapters.
 \pagenumbering{arabic}
-% caller for the general style definitions
-\mainmatter
-% Turn on thumb indices.
+
+%% caller for the general style definitions
+%\mainmatter
+
+%% Turn on thumb indices.
 \thumbtrue
 
 
 
-%%%%%%%%%%%%%%
-%%      ~~~~ PART 0 ~~~~
-%%%%%%%%%%%%%%
-%
-%% Set the Part name and properties
-%\stepcounter{thumbcounter}
-%\setcounter{colorcounter}{1}
-%\part[\color{thumb\arabic{thumbcounter}}Introduction]{Introduction}\label{part:intro}
-%\chaptoc
 
-%% Introduction
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ PART I ~~~~ INTRODUCTION
+%%
+%% - Introduction
+%% - Context / theoretical background
+%% - Researhc questions / structure
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% Part-title and properties
+%% Progress the thumbcounter
+\stepcounter{thumbcounter}
+%% Colour to use for this part
+\setcounter{colorcounter}{1}
+%% Name and label
+\part[Introduction title in the TOC]{Introduction title on the chapter titlepage}
+\label{part:intro}
+
+
+
+%%%% Qoute
+\epigraph{
+       You're only given a little spark of madness, and if you lose that... \\ you're nothing.
+}{Robin Williams}
+
+%%%% PLAIN LANGUAGE SUMMARY
+\section*{Plain Language Summary}
+This thesis describes the design, application and evaluation of metrics and measures aimed to support stakeholders to achieve something awesome. 
+
+We show off some cool findings, like the specifc method we used.
+
+Several new techniques have also been explored. 
+This meant that we could provide more in-depth insight where it was needed. 
+
+%%%% Part table of contents
+\chaptoc
+
+
+
+
+%%%% Introduction
+%% General introduction to the thesis
 \include{MainMatter/introduction}
 
 
-%% Overview of contributions of the articles used
-\include{MainMatter/contributions}
+
+%% Force clear pages to make it neat
+\cleardoublepage
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ PART II ~~~~ 
+%%
+%% - Paper 1: Properties of this LaTeX class
+%% - Paper 2: A filler chapter
+%% - Paper 3: Some filler chapter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%
-%%      ~~~~ PART 1 ~~~~
-%%%%%%%%%%%%%%
-%
-%% Set the Part name and properties
+
+
+%%%% Part-title and properties
+%% Progress the thumbcounter
 \stepcounter{thumbcounter}
-\setcounter{colorcounter}{1}
-\part[\color{thumb\arabic{thumbcounter}}Properties of a dissertation class]{Properties of a dissertation class}\label{part:first}
+%% Colour to use for this part
+\setcounter{colorcounter}{2}
+%% Name and label
+\part[Properties of a dissertation class]{Properties of a dissertation class}
+\part[\color{thumb\arabic{thumbcounter}}
+\label{part:second}
 
-%% short desctription of contents of Part
-\lipsum[1-3]
+%%%% Qoute
+\epigraph{
+       If you like quotes.. \\ this might be a way to go.
+}{Laurens P. Stoop}
+
+%%%% PLAIN LANGUAGE SUMMARY
+\section*{Plain Language Summary}
+This thesis describes the design, application and evaluation of metrics and measures aimed to support the integration of Energy  \& Climate modelling. aimed to capture relevant aspects of the weather and claimte f. Several new measurement techniques are presented as well as an Application-Specific Integrated Circuit (ASIC) designed for accurate measurement of flow velocity with matrix transducers.
+
+The influence of circuit topologies on the zero-flow performance of ultrasonic flow meters has been analyzed and an algorithm is presented to reduce the offset. With a linear transducer array, flow measurements have been performed via two different acoustic paths, demonstrating the ability to accurately measure flow with array transducers through a stainless-steel pipe wall. In order to improve signal quality, an ASIC has been designed that is able to drive and read-out 96 piezo transducer elements. The ASIC has been characterized electrically and flow measurements have been performed in combination with the linear transducer arrays.
+
+Several new techniques, enabled using transducer arrays, have also been explored. By tapering the amplitude of the transmit signals, spurious waves can be suppressed. An auto-calibration technique has been developed that uses additional acoustic measurements to estimate the diameter of the pipe and the speed of sound in the pipe wall and liquid. Finally, a simulation study has been performed to explore the possibility of exploiting the beam-steering capabilities of transducer arrays to measure flow velocity profiles by using measurements obtained via multiple acoustic paths.
+
 
 % Set part table of contents on a new page
 \newpage
@@ -177,130 +243,162 @@
 
 
 %% Include a chapter based on a paper
-\include{MainMatter/paper1/paper1-main}
+\input{MainMatter/paper1/paper1-main}
 
 
 
-
-
-
-
-
-
-%%%%%%%%%%%%%%
-%%      ~~~~ PART 2 ~~~~
-%%%%%%%%%%%%%%
-%
-%% Set the Part name and properties
-\stepcounter{thumbcounter}
-\setcounter{colorcounter}{2}
-\part[\color{thumb\arabic{thumbcounter}}An example of a second part]{An example of a second part}\label{part:second}
-
-
-%% short desctription of contents of Part
-\lipsum[1-3]
-
-% Set part table of contents on a new page
-\newpage
-\chaptoc
-
-
-
-
-\chapter{A filler chapter}
+%% Temporary filler
+\chapter{A filler chapter}\label{chap:profile1}
 \lipsum[15-29]
 
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%
-%%      ~~~~ PART 3 ~~~~
-%%%%%%%%%%%%%%
-%
-%% Set the Part name and properties
-\stepcounter{thumbcounter}
-\setcounter{colorcounter}{3}
-\part[\color{thumb\arabic{thumbcounter}}A third party joins the game]{A third party joins the game}\label{part:second}
- %% short desctription of contents of Part
-\lipsum[1-3]
-
-% Set part table of contents on a new page
-\newpage
-\chaptoc
-
-
-
-
-\chapter{Some filler chapter}\label{chap:profile}
+%% Temporary filler
+\chapter{Some filler chapter}\label{chap:profile2}
 \lipsum[30-41]
-
 And a final line.
 
 
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ PART II ~~~~ METRICS AND MEASURES
+%%
+%% - Paper 4: More filler chapters
+%% - Paper 5: A final filling
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Add the conclusion style definition
-% restarting the introduction part, without calling it such
-\startcontents[chaps]
+
+
+%%%% Part-title and properties
+%% Progress the thumbcounter
 \stepcounter{thumbcounter}
-\addtocontents{toc}{\IncCLR}
+%% Colour to use for this part
+\setcounter{colorcounter}{3}
+%% Name and label
+\part[An example of another part]{An example of another part}
+\label{part:second}
+
+%%%% Qoute
+\epigraph{
+       If you like quotes.. \\ this might be a way to go.
+}{Laurens P. Stoop}
+
+%%%% PLAIN LANGUAGE SUMMARY
+\section*{Plain Language Summary}
+\lipsum[42-44]
+
+% Set part table of contents on a new page
+\newpage
+\chaptoc
+
+
+
+%% Temporary filler
+\chapter{More filler chapters}\label{chap:profile3}
+\lipsum[45-52]
+
+%% Temporary filler
+\chapter{Some filler chapter}\label{chap:profile4}
+\lipsum[53-68]
+And a very final line.
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ PART IV ~~~~ Conclusion
+%%
+%% - Introduction to conclusion
+%% - Scientific summary of chapters
+%% - Conclusion to RQ
+%% - General synthesis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% Part-title and properties
+%% Progress the thumbcounter
+\stepcounter{thumbcounter}
+%% Colour to use for this part
+\setcounter{colorcounter}{4}
+%% Name and label
+\part[Concluding remarks]{Concluding Remarks}
+\label{part:conclusion}
+
+
+%%%% Qoute
+\epigraph{
+       If you like quotes.. \\ this might be a way to go.
+}{Laurens P. Stoop}
+
+%%%% PLAIN LANGUAGE SUMMARY
+\section*{Plain Language Summary}
+This thesis describes the design, application and evaluation of metrics and measures aimed to support the integration of Energy  \& Climate modelling. aimed to capture relevant aspects of the weather and claimte f. Several new measurement techniques are presented as well as an Application-Specific Integrated Circuit (ASIC) designed for accurate measurement of flow velocity with matrix transducers.
+
+The influence of circuit topologies on the zero-flow performance of ultrasonic flow meters has been analyzed and an algorithm is presented to reduce the offset. With a linear transducer array, flow measurements have been performed via two different acoustic paths, demonstrating the ability to accurately measure flow with array transducers through a stainless-steel pipe wall. In order to improve signal quality, an ASIC has been designed that is able to drive and read-out 96 piezo transducer elements. The ASIC has been characterized electrically and flow measurements have been performed in combination with the linear transducer arrays.
+
+Several new techniques, enabled using transducer arrays, have also been explored. By tapering the amplitude of the transmit signals, spurious waves can be suppressed. An auto-calibration technique has been developed that uses additional acoustic measurements to estimate the diameter of the pipe and the speed of sound in the pipe wall and liquid. Finally, a simulation study has been performed to explore the possibility of exploiting the beam-steering capabilities of transducer arrays to measure flow velocity profiles by using measurements obtained via multiple acoustic paths.
+
+
+
+
 
 %% Add the actual conclusion
 \include{MainMatter/conclusions}
 
 
 
-%% Add an optional epilogue
+%%%% Epilogue (opt)
 \include{BackMatter/epilogue}
 
 
 
 
 
+%% Force clear pages to make it neat
+\cleardoublepage
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%            ~~~~ Appendices ~~~~
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% In general this contains the following [required] chapters:
-%               - Summary (English) [semi-required]
-%               - Samenvatting (Nederlands)  [required]
-%               - List of Publications (often included)
-%               - Portfolio or courselist (required for some research schools)
-%               - short Curriculum Vitae  [required]
-%               - Acknowledgements (expected)
-%
 
-%% Back Matter style settings
-% We force to clear all floats
-\clearpage
-% Use Arabic numerals for the page numbers of the chapters.
-\pagenumbering{Roman}
-% caller for the general style definitions
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ Part V Appendices ~~~~
+%% i.e. the supplemantary information/material or appendices of the core chapters
+%%
+%% - References
+%% - SI of core chapters
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% Appendix style settings
+%% Use Arabic numerals for the page numbers, but Alphanumeric numbering of the chapters.
 \appendix
 
-%%%%%%%%%%%%%%
-%%      ~~~~ Appendix  ~~~~
-%%%%%%%%%%%%%%
-%
-%% Set the Part name and properties
+%%%% Part-title and properties
+%% Progress the thumbcounter
 \stepcounter{thumbcounter}
-\setcounter{colorcounter}{4}
-\part[\color{thumb\arabic{thumbcounter}}Appendix]{Appendix}\label{part:intro}
-%% short desctription of contents of Part
-\lipsum[1-3]
+%% Colour to use for this part
+\setcounter{colorcounter}{5}
+%% Name and label
+\part[Appendices]{Appendies}
+\label{part:appendix}
 
-% Set part table of contents on a new page
-\newpage
+%%%% Part table of contents
 \chaptoc
+
+
+
+
+%%%% References
+%% add to the general TOC
+\addcontentsline{toc}{chapter}{References}
+%% add to the chapter TOC
+\addcontentsline{chaptoc}{chapter}{References}
+%% add the references & fix the title style
+\printbibliography[title={\color{thumb\arabic{thumbcounter}}References}]
+
+
 
 
 
@@ -308,6 +406,44 @@ And a final line.
 \include{BackMatter/appendix-example}
 
 
+
+
+
+%% Force clear pages to make it neat
+\cleardoublepage
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ PART VI BackMatter ~~~~
+%% i.e. the required components that are not part of the work presented
+%%
+%% - Summary (English)
+%% - Samenvatting (Nederlands)
+%% - List of Publications
+%% - Portfolio or courselist (required for some research schools)
+%% - Short Curriculum Vitae
+%% - Acknowledgements (opt)
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% Part-title and properties
+%% Progress the thumbcounter
+\stepcounter{thumbcounter}
+%% Colour to use for this part
+\setcounter{colorcounter}{6}
+%% Name and label
+\part[Backmatter]{Backmatter}
+\label{part:backmatter}
+
+
+%%%% Qoute
+\epigraph{
+       A good manuscript is a submitted manuscript. A great manuscript is a published manuscript. A perfect manuscript is neither.
+}{Shit Academics Say} % on Twitter @AcademicsSay (Dec 7, 2021)}
+
+%% Part table of contents
+\chaptoc
 
 
 
@@ -329,16 +465,16 @@ And a final line.
 %% List of publications
 \include{Backmatter/publications}
 
-%% Acknowledgements
-\include{Backmatter/acknowledgements}
-
 
 %% Curriculum Vitae or About the author
 \include{Backmatter/cv}
 
+%% Acknowledgements
+\include{Backmatter/acknowledgements}
+
 
 %% include the BackCover
-\include{BackMatter/backcover}
+% \include{BackMatter/backcover}
 
 %% Print an overview of the layout
 %\layout

@@ -23,7 +23,7 @@
 % The base class definition, we require LaTeX2e and provide the dissertation class
 % 		- Based on the  TU Delft dissertation class (v1.0) 08-07-2013
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{dissertation}[2022/03/31 v0.3 Laurens Stoop dissertation class]
+\ProvidesClass{dissertation}[2023/04/18 v0.4 Laurens Stoop dissertation class]
 
 \newif\if@nativefonts
 \DeclareOption{nativefonts}{\@nativefontstrue}

@@ -25,7 +25,7 @@
 
 %%%% Author
 %% this will be used everywhere
-\author{Laurens}{Stoop}
+\author{Your First Names}{Lastname}
 
 
 
@@ -45,10 +45,10 @@
 \input{stylesheet}
 
 %% (opt) Specific Hyphenations 
-\input{hyphenations}
+\input{Frontmatter/hyphenations}
 
 %% (opt) Specific LaTeX shorthands
-\input{shorthand}
+\input{Frontmatter/shorthand}
 
 %% Set the file with the references
 \addbibresource{references.bib}
@@ -90,16 +90,6 @@
 \include{FrontMatter/title}
 
 
-
-%%%% Dedication (opt)
-%% - can be used to thank someone or display a significant quotation.
-%% - an empty & clear page should be used
-\clearpage
-\thispagestyle{empty}
-\dedication{\epigraph{Science is a wonderful thing \\ if one does not have to earn one's living at it.}{Albert Einstein}}
-
-
-
 %%%% Table of Contents
 %% - Set depth of ToC  at this point to 1
 %% - Start all counters after the ToC
@@ -139,9 +129,6 @@
 %%%% Main Matter style settings
 %% Use Arabic numerals for the page numbers of the chapters.
 \pagenumbering{arabic}
-
-%% caller for the general style definitions
-%\mainmatter
 
 %% Turn on thumb indices.
 \thumbtrue
@@ -186,6 +173,7 @@ Several new techniques have also been explored.
 This meant that we could provide more in-depth insight where it was needed. 
 
 %%%% Part table of contents
+\newpage
 \chaptoc
 
 
@@ -203,7 +191,7 @@ This meant that we could provide more in-depth insight where it was needed.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% ~~~~ PART II ~~~~ 
+%%%% ~~~~ PART II ~~~~ Methods and metrics
 %%
 %% - Paper 1: Properties of this LaTeX class
 %% - Paper 2: A filler chapter
@@ -219,7 +207,6 @@ This meant that we could provide more in-depth insight where it was needed.
 \setcounter{colorcounter}{2}
 %% Name and label
 \part[Properties of a dissertation class]{Properties of a dissertation class}
-\part[\color{thumb\arabic{thumbcounter}}
 \label{part:second}
 
 %%%% Qoute
@@ -247,68 +234,12 @@ Several new techniques, enabled using transducer arrays, have also been explored
 
 
 
-%% Temporary filler
-\chapter{A filler chapter}\label{chap:profile1}
-\lipsum[15-29]
-
-%% Temporary filler
-\chapter{Some filler chapter}\label{chap:profile2}
-\lipsum[30-41]
-And a final line.
-
-
-
+%% Force clear pages to make it neat
+\cleardoublepage
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% ~~~~ PART II ~~~~ METRICS AND MEASURES
-%%
-%% - Paper 4: More filler chapters
-%% - Paper 5: A final filling
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-%%%% Part-title and properties
-%% Progress the thumbcounter
-\stepcounter{thumbcounter}
-%% Colour to use for this part
-\setcounter{colorcounter}{3}
-%% Name and label
-\part[An example of another part]{An example of another part}
-\label{part:second}
-
-%%%% Qoute
-\epigraph{
-       If you like quotes.. \\ this might be a way to go.
-}{Laurens P. Stoop}
-
-%%%% PLAIN LANGUAGE SUMMARY
-\section*{Plain Language Summary}
-\lipsum[42-44]
-
-% Set part table of contents on a new page
-\newpage
-\chaptoc
-
-
-
-%% Temporary filler
-\chapter{More filler chapters}\label{chap:profile3}
-\lipsum[45-52]
-
-%% Temporary filler
-\chapter{Some filler chapter}\label{chap:profile4}
-\lipsum[53-68]
-And a very final line.
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% ~~~~ PART IV ~~~~ Conclusion
+%%%% ~~~~ PART X ~~~~ Conclusion
 %%
 %% - Introduction to conclusion
 %% - Scientific summary of chapters
@@ -333,23 +264,23 @@ And a very final line.
 
 %%%% PLAIN LANGUAGE SUMMARY
 \section*{Plain Language Summary}
-This thesis describes the design, application and evaluation of metrics and measures aimed to support the integration of Energy  \& Climate modelling. aimed to capture relevant aspects of the weather and claimte f. Several new measurement techniques are presented as well as an Application-Specific Integrated Circuit (ASIC) designed for accurate measurement of flow velocity with matrix transducers.
-
-The influence of circuit topologies on the zero-flow performance of ultrasonic flow meters has been analyzed and an algorithm is presented to reduce the offset. With a linear transducer array, flow measurements have been performed via two different acoustic paths, demonstrating the ability to accurately measure flow with array transducers through a stainless-steel pipe wall. In order to improve signal quality, an ASIC has been designed that is able to drive and read-out 96 piezo transducer elements. The ASIC has been characterized electrically and flow measurements have been performed in combination with the linear transducer arrays.
-
-Several new techniques, enabled using transducer arrays, have also been explored. By tapering the amplitude of the transmit signals, spurious waves can be suppressed. An auto-calibration technique has been developed that uses additional acoustic measurements to estimate the diameter of the pipe and the speed of sound in the pipe wall and liquid. Finally, a simulation study has been performed to explore the possibility of exploiting the beam-steering capabilities of transducer arrays to measure flow velocity profiles by using measurements obtained via multiple acoustic paths.
+\lipsum[1337]
 
 
+% Set part table of contents on a new page
+\newpage
+\chaptoc
 
 
 
-%% Add the actual conclusion
+
+
+%% Add the actual conclusion (this can be split into scientific summaryu of chapter, conclusion & outlook)
 \include{MainMatter/conclusions}
 
 
-
 %%%% Epilogue (opt)
-\include{BackMatter/epilogue}
+% \include{BackMatter/epilogue}
 
 
 
@@ -363,7 +294,7 @@ Several new techniques, enabled using transducer arrays, have also been explored
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% ~~~~ Part V Appendices ~~~~
+%%%% ~~~~ Part X+1 Appendices ~~~~
 %% i.e. the supplemantary information/material or appendices of the core chapters
 %%
 %% - References
@@ -415,11 +346,10 @@ Several new techniques, enabled using transducer arrays, have also been explored
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% ~~~~ PART VI BackMatter ~~~~
+%%%% ~~~~ PART X+2 BackMatter ~~~~
 %% i.e. the required components that are not part of the work presented
 %%
-%% - Summary (English)
-%% - Samenvatting (Nederlands)
+%% - Samenvatting (Nederlands) [required if thesis in English]
 %% - List of Publications
 %% - Portfolio or courselist (required for some research schools)
 %% - Short Curriculum Vitae
@@ -447,8 +377,6 @@ Several new techniques, enabled using transducer arrays, have also been explored
 
 
 
-%% Summary
-\include{Backmatter/summary}
 
 %% Samenvatting
 \include{Backmatter/samenvatting}
@@ -458,9 +386,10 @@ Several new techniques, enabled using transducer arrays, have also been explored
 %               - It's a style choice where you turn these off
 \thumbfalse
 
-%% Turning off the chapter numbering
-\backmatter
 
+%%%% List of SIKS dissertations
+%% Required for SIKS
+\include{BackMatter/siks}
 
 %% List of publications
 \include{Backmatter/publications}

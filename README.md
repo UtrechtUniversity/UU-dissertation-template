@@ -25,6 +25,11 @@ Or by selecting the 'pdfLaTeX' and 'Biber' options in your favourite TeX editing
 A sample document, as well as documentation for template options, can be found
 in main.pdf. 
 
+Please note: When running the following warning is due to the fancy colouring of the headers. Not sure how to fix this. 
+```Token not allowed in a PDF string (Unicode): (hyperref) removing `\@ifnextchar'.```
+
+
+
 ## Project organisation
 
 A description of the project organisation is provided below. The required, often included and optional sections are also labeled here (as well as within main.tex). 

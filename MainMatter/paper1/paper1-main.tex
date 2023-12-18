@@ -39,7 +39,7 @@ In this chapter the properties of the dissertation class are described.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% ~~~~ Introduction
 
-\noindent This document is intended to be both an example of the Utrecht University dissertation template for \LaTeX, as well as a short introduction to its use. It is not intended to be a general introduction to \LaTeX{} itself,\footnote{We recommend \url{http://en.wikibooks.org/wiki/LaTeX} as a reference and a starting point for new users.} and we will assume the reader to be familiar with the basics of creating and compiling documents.
+This document is intended to be both an example of the Utrecht University dissertation template for \LaTeX, as well as a short introduction to its use. It is not intended to be a general introduction to \LaTeX{} itself,\footnote{We recommend \url{http://en.wikibooks.org/wiki/LaTeX} as a reference and a starting point for new users.} and we will assume the reader to be familiar with the basics of creating and compiling documents.
 
 Instructions on how to use this template under Windows and Linux, and which \LaTeX{} packages are required, can be found in \texttt{README.txt}.
 
@@ -67,6 +67,10 @@ The contents of the dissertation are included between the \texttt{\textbackslash
 \end{enumerate}
 The title page is defined in \texttt{title.tex} in the \texttt{title} folder and included verbatim with \texttt{\textbackslash include\{title/title\}},\footnote{Note that it is not necessary to specify the file extension.} (see below). Additionally, it is possible to include a preface, containing, for example, the acknowledgements. An example can be found in \texttt{preface.tex}. The table of contents is generated automatically with the \texttt{\textbackslash tableofcontents} command. Chapters are included after \texttt{\textbackslash mainmatter} and appendices after \texttt{\textbackslash appendix}. For example, \texttt{\textbackslash include\{chapter-1/chapter-1\}} includes \texttt{chapter-1.tex}, which contains this introduction.
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ Title page
 \section{Title Page}
 
 \dropcap{T}{he} title pages are defined in \texttt{title/title.tex}, which you will have to modify according to your needs. Note that these pages are subject to the requirements of the \emph{promotieregelement} and cannot be changed at will. Apart from the names and dates, most of the Dutch text is dictated literally.
@@ -84,6 +88,10 @@ Note that the first and last name are separate arguments, since they may be prin
 
 See \texttt{title/title.tex} for detailed documentation on the comment and layout of the title pages. Logos of institutes that have contributed financially to the dissertation may be included on reverse side of the title page. A few example logos can be found in the \texttt{title/logos} folder.
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ Chapters
 \section{Chapters}
 
 \dropcap{E}{ach} chapter has its own file. For example, the \LaTeX{} source of this chapter can be found in \texttt{chapter-1.tex}. A chapter starts with the command
@@ -123,7 +131,11 @@ Chapters are subdivided into sections, subsections, subsubsections, and, optiona
 \paragraph{\textbackslash paragraph\{\ldots\}}
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-\section{Fonts and Colors}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ Fonts and colours
+\section{Fonts and Colours}
 
 \dropcap{T}{he} fonts used by this template depend on which version of \LaTeX{} you use. Regular \LaTeX, \emph{i.e.}, if you compile your document with with \texttt{latex}, \texttt{pslatex} or \texttt{pdflatex}, will use Utopia for text, Fourier for math and Latin Modern for sans-serif and monospaced text. However, if you want to adhere to the TU Delft house style, you will need to use \XeLaTeX, as it supports TrueType and OpenType fonts. Compiling with \texttt{xelatex} will use Bookman Old Style for titles, Tahoma for text, Courier New for monospace and Cambria for math. If you want to use \XeLaTeX, but do not want to use the TU Delft house style fonts, you can add the \texttt{nativefonts} option to the document class.
 
@@ -134,28 +146,17 @@ This template supports the use of drop caps, a large colored initial at the begi
 \end{quote}
 The first argument is the capital that will be printed on two lines (in the title color), and the second argument is the rest of the word. Depending on the font, the latter may be printed in small caps.
 
-The corporate colors of the TU Delft are cyan, black and white, available, respectively, via \texttt{\textbackslash color\{{\color{tudelft-cyan}tudelft-cyan}\}}, \texttt{\textbackslash color\{{\color{tudelft-black}tudelft-black}\}} (which differs slightly from the default \texttt{black}) and \texttt{\textbackslash color\{tudelft-white\}}. Apart from these three, the house style defines the basic colors
+The corporate colors of the Utrecht University are red, black and yellow, available, respectively, via \texttt{\textbackslash color\{{\color{utrechtuniversity-red}utrechtuniversity-red}\}}, \texttt{\textbackslash color\{{\color{utrechtuniversity-black}utrechtuniversity-black}\}} (which differs slightly from the default \texttt{black}) and \texttt{\textbackslash color\{utrechtuniversity-yellow\}}. Apart from these three, the house style defines the basic colors
 \begin{itemize}
 %% Reduce the separation between the items, since this is just a list of words.
 \itemsep 0pt
 \parskip 0pt
-\item\texttt{\color{tudelft-sea-green}tudelft-sea-green},
-\item\texttt{\color{tudelft-green}tudelft-green},
-\item\texttt{\color{tudelft-dark-blue}tudelft-dark-blue},
-\item\texttt{\color{tudelft-purple}tudelft-purple},
-\item\texttt{\color{tudelft-turquoise}tudelft-turquoise} and
-\item\texttt{\color{tudelft-sky-blue}tudelft-sky-blue},
+\item\texttt{\color{utrechtuniversity-creme}utrechtuniversity-creme},
+\item\texttt{\color{utrechtuniversity-orange}utrechtuniversity-orange},
+\item\texttt{\color{utrechtuniversity-bordeaux}utrechtuniversity-bordeaux},
+\item\texttt{\color{utrechtuniversity-brown}utrechtuniversity-brown},
+\item\texttt{\color{utrechtuniversity-green}utrechtuniversity-green},
+\item\texttt{\color{utrechtuniversity-blue}utrechtuniversity-blue},
+\item\texttt{\color{utrechtuniversity-darkblue}utrechtuniversity-darkblue} and
+\item\texttt{\color{utrechtuniversity-purple}utrechtuniversity-purple} 
 \end{itemize}
-as well as the accent colors
-\begin{itemize}
-\itemsep 0pt
-\parskip 0pt
-\item\texttt{\color{tudelft-lavendel}tudelft-lavendel},
-\item\texttt{\color{tudelft-orange}tudelft-orange},
-\item\texttt{\color{tudelft-warm-purple}tudelft-warm-purple},
-\item\texttt{\color{tudelft-fuchsia}tudelft-fuchsia},
-\item\texttt{\color{tudelft-bright-green}tudelft-bright-green} and
-\item\texttt{\color{tudelft-yellow}tudelft-yellow}.
-\end{itemize}
-
-

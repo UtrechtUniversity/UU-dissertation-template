@@ -188,35 +188,34 @@
     \def\headerstyle{\titlestyle}
 \fi
 
-%% Define the TU Delft house style colors.
-\definecolor{tudelft-cyan}{cmyk}{1,0,0,0}
-\definecolor{tudelft-black}{cmyk}{0,0,0,1}
-\definecolor{tudelft-white}{cmyk}{0,0,0,0}
-\definecolor{tudelft-sea-green}{cmyk}{0.54,0,0.32,0}
-\definecolor{tudelft-green}{cmyk}{1,0.15,0.4,0}
-\definecolor{tudelft-dark-blue}{cmyk}{1,0.66,0,0.4}
-\definecolor{tudelft-purple}{cmyk}{0.98,1,0,0.35}
-\definecolor{tudelft-turquoise}{cmyk}{0.82,0,0.21,0.08}
-\definecolor{tudelft-sky-blue}{cmyk}{0.45,0,0.06,0.06}
-\definecolor{tudelft-lavendel}{cmyk}{0.45,0.2,0,0.07}
-\definecolor{tudelft-orange}{cmyk}{0.02,0.56,0.84,0}
-\definecolor{tudelft-warm-purple}{cmyk}{0.58,1,0,0.02}
-\definecolor{tudelft-fuchsia}{cmyk}{0.19,1,0,0.19}
-\definecolor{tudelft-bright-green}{cmyk}{0.36,0,1,0}
-\definecolor{tudelft-yellow}{cmyk}{0.02,0,0.54,0}
-\definecolor{douwe-orange}{cmyk}{0.02,0.56,0.84,0}
-\definecolor{douwe-green}{cmyk}{0.66,0,1,0}
+%% Define the Utrecht University house style colors.
+\definecolor{utrechtuniversity-black}{cmyk}{20,0,0,100}
+\definecolor{utrechtuniversity-white}{cmyk}{0,0,0,0}
+\definecolor{utrechtuniversity-yellow}{cmyk}{0,15,100,0}
+\definecolor{utrechtuniversity-red}{cmyk}{0,100,80,0}
+\definecolor{utrechtuniversity-creme}{cmyk}{0,10,40,0}
+\definecolor{utrechtuniversity-orange}{cmyk}{0,50,65,0}
+\definecolor{utrechtuniversity-bordeaux}{cmyk}{30,100,40,10}
+\definecolor{utrechtuniversity-brown}{cmyk}{35,70,80,50}
+\definecolor{utrechtuniversity-green}{cmyk}{75,8,50,0}
+\definecolor{utrechtuniversity-blue}{cmyk}{70,40,0,0}
+\definecolor{utrechtuniversity-darkblue}{cmyk}{100,80,0,70}
+\definecolor{utrechtuniversity-purple}{cmyk}{80,100,0,0}
+
+%% Additional personal colours
+\definecolor{laurensstoop-orange}{cmyk}{0.02,0.56,0.84,0}
+\definecolor{laurensstoop-green}{cmyk}{0.66,0,1,0}
 
 %% Use TU Delft cyan as the color for titles, unless the 'print' option is
 %% specified, in which case we use anthracite, a dark gray, which is also used
 %% for the thumb indices.
 \definecolor{anthracite}{cmyk}{0,0,0,0.8}
 \if@print
-    \colorlet{title}{douwe-green}
+    \colorlet{title}{laurensstoop-green}
 \else
-    \colorlet{title}{douwe-green} %{tudelft-cyan}
+    \colorlet{title}{laurensstoop-green} %{utrechtuniversity-cyan}
 \fi
-\colorlet{thumb}{douwe-green}
+\colorlet{thumb}{laurensstoop-green}
 
 %% Set the paper size to 17 by 24 cm, approximately halfway between A4 and A5.
 \if@print
@@ -308,16 +307,15 @@
 \usetikzlibrary{calc}
 
 % Colours of the chapters
-\definecolor{thumb0}{cmyk}{1,0.66,0,0.4} % blue
-\definecolor{thumb1}{cmyk}{0.78,1,0.22,0.15} % purple
-\definecolor{thumb2}{cmyk}{0.22,0.92,0.57,0.07} % reddish
-\definecolor{thumb3}{cmyk}{0,0.55,1,0} % orange
-\definecolor{thumb4}{cmyk}{0.78,1,0.22,0.15} % purple
-\definecolor{thumb5}{cmyk}{0.78,1,0.22,0.15} % purple
-\definecolor{thumb6}{cmyk}{1,0.66,0,0.4} % bluez
-\definecolor{thumb7}{cmyk}{1,0.66,0,0.4} % blue
-\definecolor{thumb8}{cmyk}{0,0,0,1} % black
-
+\definecolor{thumb0}{cmyk}{100,80,0,70} % blue
+\definecolor{thumb1}{cmyk}{80,100,0,0} % purple
+\definecolor{thumb2}{cmyk}{0,100,80,0} % reddish
+\definecolor{thumb3}{cmyk}{0,15,100,0} % orange
+\definecolor{thumb4}{cmyk}{80,100,0,0} % purple
+\definecolor{thumb5}{cmyk}{80,100,0,0} % purple
+\definecolor{thumb6}{cmyk}{100,80,0,70} % blue
+\definecolor{thumb7}{cmyk}{100,80,0,70} % blue
+\definecolor{thumb8}{cmyk}{20,0,0,100} % black
 
 
 %%% THIS IS WHERE WE CAN ADD A CLIMATE STRIPE THUMB
@@ -342,7 +340,7 @@
             %% Print the chapter number at the center right in the thumb index.
             \coordinate (center right) at ($(bottom right)+(0pt,0.5\thumbheight)$);
             \node at (center right)[anchor=east,inner sep=2\thumbedge]{
-                \titlefont\bfseries\color{tudelft-white}
+                \titlefont\bfseries\color{utrechtuniversity-white}
                 \fontsize{0.75\thumbheight}{0.75\thumbheight}\selectfont
                 \thechapter
             };
@@ -368,7 +366,7 @@
             %% Print the chapter number at the center right in the thumb index.
             \coordinate (center left) at ($(bottom left)+(0pt,0.5\thumbheight)$);
             \node at (center left)[anchor=west,inner sep=2\thumbedge]{
-                \titlefont\bfseries\color{tudelft-white}
+                \titlefont\bfseries\color{utrechtuniversity-white}
                 \fontsize{0.75\thumbheight}{0.75\thumbheight}\selectfont
                 \thechapter
             };

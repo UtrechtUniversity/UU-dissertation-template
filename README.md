@@ -4,18 +4,18 @@ Version 0.4
 
 <!-- For future use: ![Latest release](https://img.shields.io/github/v/release/UtrechtUniversity/UU-dissertation-template?style=flat-square) -->
 
-This is a Utrecht University dissertation template for LaTeX. While it is based around the TU Delft template, it should follow the required content and textual obligations as provided in the doctoral degree regulations and the 'aanwijzingen voor promovendi'. 
+This is a Utrecht University dissertation template for LaTeX. While it is loosely based on the TU Delft template, it should follow the required content and textual obligations as provided in the doctoral degree regulations and the 'aanwijzingen voor promovendi'. 
 
-It is designed to work with all versions of LaTeX, but if you want to adhere to the TU Delft housestyle (some legacy there), you need to use XeLaTeX, as it supports TrueType and OpenType fonts. 
+It is designed to work with all versions of LaTeX, but if you want to adhere to the UU housestyle (some legacy there), you need add the UU fonts and use XeLaTeX, as it supports TrueType and OpenType fonts. 
 
 We welcome all input and any suggestions or examples using this template.
 
 ## Using the template
 
-The document can be compiled with
+The document can be compiled with ```latexmk```, alternatively by running:
 ```sh
 pdflatex main
-biber MainMatter/paper1/paper1biblio
+biber references
 pdflatex main
 pdflatex main
 ```
@@ -54,21 +54,23 @@ As this is an ongoing project, the works in progress (WIP) are explicitly listed
 │   	├── title.tex          	 		<- Title page content and styling (required)
 │   	├── Logos		 		<- Contains all logos used
 │   	├── acronyms.tex 		        <- Definition of acronyms used (often included)
+│   	├── hyphenations.tex 		        <- Explicit hyphenation commands for terminology
+│   	├── shorthand.tex 		        <- Way to define shorthands for common terms or phrases
 │   	└── preface.tex     		        <- Optional opening word (optional)
 ├── MainMatter             		<- Contains all .tex files for the content from introduction to conclusion
 │   	├── introduction.tex     		<- Introduction .tex file (required)
 │   	├── contributions.tex     	        <- Overview of contributions .tex file (required, can be part of appendix, see publications.tex)
 │   	├── conclusions.tex     		<- Conclusion .tex file (required)
-│   	└── paper1				<- Contains the .tex and .bib file (paper1-main) and Figures folder
+│   	└── paper1				<- Contains the .tex file (paper1-main) and Figures folder (in this case the explanation of the class)
 └── BackMatter           		<- Contains all .tex files for content after the conclusion
-      	├── epilogue.tex        		<- Epilogue (optional)
-      	├── appendix-example.tex   	        <- Example of appendix of a MainMatter paper/chapter
-      	├── summary.tex        		        <- English summary (often included)
-      	├── samenvatting.tex        	        <- Dutch samenvatting (required)
-      	├── publications.tex        	        <- Listing method for published works (required, can be part of introduction, see contributions.tex)
-      	├── acknowledgements.tex	        <- Ackns. or Dankwoord (often included)
-      	├── cv.tex        			<- CV or about the author (required)
-   	└── backcover.tex         	        <- Styling of the back cover content
+        ├── epilogue.tex                        <- Epilogue (optional)
+        ├── appendix-example.tex   	        <- Example of appendix of a MainMatter paper/chapter
+        ├── sikx.tex        		        <- SIKS research school list (required for SIKS members)
+        ├── samenvatting.tex        	        <- Dutch samenvatting (required if dissertation in English)
+        ├── publications.tex        	        <- Listing method for published works (required)
+        ├── acknowledgements.tex	        <- Ackns. or Dankwoord (often included)
+        ├── cv.tex        			<- CV or about the author (required)
+        └── backcover.tex         	        <- Styling of the back cover content
 
 ```
 

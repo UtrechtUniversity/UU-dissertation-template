@@ -84,7 +84,7 @@
 
 
 %%%% Cover (opt in PDF) 
-% \include{FrontMatter/cover}
+\include{FrontMatter/cover}
 
 %%%% Titlepages
 \include{FrontMatter/title}
@@ -251,7 +251,7 @@ Several new techniques, enabled using transducer arrays, have also been explored
 %% Progress the thumbcounter
 \stepcounter{thumbcounter}
 %% Colour to use for this part
-\setcounter{colorcounter}{4}
+\setcounter{colorcounter}{3}
 %% Name and label
 \part[Concluding remarks]{Concluding Remarks}
 \label{part:conclusion}
@@ -310,7 +310,7 @@ Several new techniques, enabled using transducer arrays, have also been explored
 %% Progress the thumbcounter
 \stepcounter{thumbcounter}
 %% Colour to use for this part
-\setcounter{colorcounter}{5}
+\setcounter{colorcounter}{4}
 %% Name and label
 \part[Appendices]{Appendies}
 \label{part:appendix}
@@ -361,7 +361,7 @@ Several new techniques, enabled using transducer arrays, have also been explored
 %% Progress the thumbcounter
 \stepcounter{thumbcounter}
 %% Colour to use for this part
-\setcounter{colorcounter}{6}
+\setcounter{colorcounter}{5}
 %% Name and label
 \part[Backmatter]{Backmatter}
 \label{part:backmatter}
@@ -401,20 +401,20 @@ Several new techniques, enabled using transducer arrays, have also been explored
 %% Acknowledgements
 \include{Backmatter/acknowledgements}
 
-%%%% Final quote
-\cleardoublepage \hbox{}
+%%%% Final quote (the quoute has to be an even page, use following commands to get it there)
+% \cleardoublepage \hbox{}
 \newpage
-\thispagestyle{empty}
+\pagestyle{empty}
 %% page 1031, the grey havens, last two paragraphs
 \dedication{\epigraph{
     A good manuscript is a submitted manuscript. A great manuscript is a published manuscript. A perfect manuscript is neither.
-}{Shit Academics Say} % on Twitter @AcademicsSay (Dec 7, 2021)}}
+}{Shit Academics Say}} % on Twitter @AcademicsSay (Dec 7, 2021)}}
 
 
 
 
 %% include the BackCover
-% \include{BackMatter/backcover}
+\include{BackMatter/backcover}
 
 %% Print an overview of the layout
 %\layout

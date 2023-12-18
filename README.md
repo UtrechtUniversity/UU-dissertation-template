@@ -1,6 +1,6 @@
 # Utrecht University dissertation template
 
-Version 0.2.2
+Version 0.4
 
 <!-- For future use: ![Latest release](https://img.shields.io/github/v/release/UtrechtUniversity/UU-dissertation-template?style=flat-square) -->
 
@@ -26,6 +26,7 @@ A sample document, as well as documentation for template options, can be found
 in main.pdf. 
 
 Please note: When running the following warning is due to the fancy colouring of the headers. Not sure how to fix this. 
+
 ```Token not allowed in a PDF string (Unicode): (hyperref) removing `\@ifnextchar'.```
 
 

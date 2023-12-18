@@ -12,7 +12,7 @@
 \label{chapter_1}
 
 %%%% Published/Review/Submitted as a paper.
-\blfootnote{The contents of this chapter are under review at A FANCY JOURNAL, for which a preprint is available on arXiv~\autocite{kudela2010turbulent}.}
+\blfootnote{The contents of this chapter are under review at A FANCY JOURNAL, for which a preprint is available on arXiv~\parencite{Einstein1906}.}
 
 
 
@@ -48,14 +48,17 @@ Instructions on how to use this template under Windows and Linux, and which \LaT
 %%%% ~~~~ Structure
 \section{Document Structure}
 
-\dropcap{S}{ince} a dissertation is a substantial document, it is convenient to break it up into smaller pieces. In this template we therefore give every chapter its own file. The chapters (and appendices) are gathered together in \texttt{dissertation.tex}, which is the master file describing the overall structure of the document. \texttt{dissertation.tex} starts with the line
+\dropcap{S}{ince} a dissertation is a substantial document, it is convenient to break it up into smaller pieces. In this template we therefore give every chapter its own file. The chapters (and appendices) are gathered together in \texttt{main.tex}, which is the master file describing the overall structure of the document. \texttt{main.tex} starts with the line
 
 %% We need an empty line before the quote environment to work around a bug in
 %% the lettrine package, from which the drop command is derived.
 \begin{quote}
 \texttt{\textbackslash documentclass\{dissertation\}}
 \end{quote}
-which loads the dissertation template. The template is based on the \LaTeX{} \texttt{book} document class and stored in \texttt{dissertation.cls}. The document class accepts several comma-separated options. By default, hyperlinks are shown in cyan, which is convenient when reading the dissertation on a computer, but can be expensive when printing. They can be turned black with the \texttt{print} option. This will also turn the headers dark gray instead of cyan. Moreover, it will add a 3~mm bleed around the page including crop marks. This will help the printer with the thumb indices, since they run right up to the page borders. Finally, the \texttt{nativefonts} option can be used to override the automatic font selection (see below).
+which loads the dissertation template. The template is based on the \LaTeX{} \texttt{book} document class and stored in \texttt{dissertation.cls}. The document class accepts several comma-separated options. By default, hyperlinks are shown in black, but this can be changed. Which is convenient when reading the dissertation on a computer, but can be expensive when printing. 
+
+\emph{these options don't work atm}
+They can be turned black with the \texttt{print} option. This will also turn the headers dark gray instead of cyan. Moreover, it will add a 3~mm bleed around the page including crop marks. This will help the printer with the thumb indices, since they run right up to the page borders. Finally, the \texttt{nativefonts} option can be used to override the automatic font selection (see below).
 
 A dissertation is a big document, which makes it easy to miss warnings about the layout in the \LaTeX{} output. In order to locate problem areas, add the \texttt{draft} option to the \texttt{\textbackslash documentclass} line. This will display a vertical bar in the margins next to the paragraphs that require attention.
 
@@ -137,6 +140,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 %%%% ~~~~ Fonts and colours
 \section{Fonts and Colours}
 
+\emph{needs to be updated}
 \dropcap{T}{he} fonts used by this template depend on which version of \LaTeX{} you use. Regular \LaTeX, \emph{i.e.}, if you compile your document with with \texttt{latex}, \texttt{pslatex} or \texttt{pdflatex}, will use Utopia for text, Fourier for math and Latin Modern for sans-serif and monospaced text. However, if you want to adhere to the TU Delft house style, you will need to use \XeLaTeX, as it supports TrueType and OpenType fonts. Compiling with \texttt{xelatex} will use Bookman Old Style for titles, Tahoma for text, Courier New for monospace and Cambria for math. If you want to use \XeLaTeX, but do not want to use the TU Delft house style fonts, you can add the \texttt{nativefonts} option to the document class.
 
 This template supports the use of drop caps, a large colored initial at the beginning of a chapter or section, via the \texttt{\textbackslash dropcap} command:
@@ -146,17 +150,17 @@ This template supports the use of drop caps, a large colored initial at the begi
 \end{quote}
 The first argument is the capital that will be printed on two lines (in the title color), and the second argument is the rest of the word. Depending on the font, the latter may be printed in small caps.
 
-The corporate colors of the Utrecht University are red, black and yellow, available, respectively, via \texttt{\textbackslash color\{{\color{utrechtuniversity-red}utrechtuniversity-red}\}}, \texttt{\textbackslash color\{{\color{utrechtuniversity-black}utrechtuniversity-black}\}} (which differs slightly from the default \texttt{black}) and \texttt{\textbackslash color\{utrechtuniversity-yellow\}}. Apart from these three, the house style defines the basic colors
+The corporate colors of the Utrecht University are red, black and yellow, available, respectively, via \texttt{\textbackslash color\{{\color{uu-red}uu-red}\}}, \texttt{\textbackslash color\{{\color{uu-black}uu-black}\}} (which differs slightly from the default \texttt{black}) and \texttt{\textbackslash color\{\color{uu-yellow}uu-yellow\}}. Apart from these three, the house style defines the basic colors
 \begin{itemize}
 %% Reduce the separation between the items, since this is just a list of words.
 \itemsep 0pt
 \parskip 0pt
-\item\texttt{\color{utrechtuniversity-creme}utrechtuniversity-creme},
-\item\texttt{\color{utrechtuniversity-orange}utrechtuniversity-orange},
-\item\texttt{\color{utrechtuniversity-bordeaux}utrechtuniversity-bordeaux},
-\item\texttt{\color{utrechtuniversity-brown}utrechtuniversity-brown},
-\item\texttt{\color{utrechtuniversity-green}utrechtuniversity-green},
-\item\texttt{\color{utrechtuniversity-blue}utrechtuniversity-blue},
-\item\texttt{\color{utrechtuniversity-darkblue}utrechtuniversity-darkblue} and
-\item\texttt{\color{utrechtuniversity-purple}utrechtuniversity-purple} 
+\item \texttt{\color{uu-creme}uu-creme},
+\item \texttt{\color{uu-orange}uu-orange},
+\item \texttt{\color{uu-bordeaux}uu-bordeaux},
+\item \texttt{\color{uu-brown}uu-brown},
+\item \texttt{\color{uu-green}uu-green},
+\item \texttt{\color{uu-blue}uu-blue},
+\item \texttt{\color{uu-darkblue}uu-darkblue} and
+\item \texttt{\color{uu-purple}uu-purple} 
 \end{itemize}

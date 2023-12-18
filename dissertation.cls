@@ -188,19 +188,32 @@
     \def\headerstyle{\titlestyle}
 \fi
 
+
+
+%%%% This code chunk is to fix UU's use of 0-255 color definitions
+%% See: https://tex.stackexchange.com/a/234882
+{\lccode`\?=`\p \lccode`\!=`\t  \lowercase{\gdef\ignorept#1?!{#1}}}
+\def\divbyccvv#1{\expandafter\ignorept\the\dimexpr#1pt/255\relax}
+
+\def\defineCMYKcolor#1#2{\defineCMYKcolorA{#1}#2,} 
+\def\defineCMYKcolorA#1#2,#3,#4,#5,{\edef\tmp{\noexpand\definecolor{#1}{cmyk}%
+      {\divbyccvv{#2},\divbyccvv{#3},\divbyccvv{#4},\divbyccvv{#5}}}\tmp
+}
+
+
 %% Define the Utrecht University house style colors.
-\definecolor{utrechtuniversity-black}{cmyk}{20,0,0,100}
-\definecolor{utrechtuniversity-white}{cmyk}{0,0,0,0}
-\definecolor{utrechtuniversity-yellow}{cmyk}{0,15,100,0}
-\definecolor{utrechtuniversity-red}{cmyk}{0,100,80,0}
-\definecolor{utrechtuniversity-creme}{cmyk}{0,10,40,0}
-\definecolor{utrechtuniversity-orange}{cmyk}{0,50,65,0}
-\definecolor{utrechtuniversity-bordeaux}{cmyk}{30,100,40,10}
-\definecolor{utrechtuniversity-brown}{cmyk}{35,70,80,50}
-\definecolor{utrechtuniversity-green}{cmyk}{75,8,50,0}
-\definecolor{utrechtuniversity-blue}{cmyk}{70,40,0,0}
-\definecolor{utrechtuniversity-darkblue}{cmyk}{100,80,0,70}
-\definecolor{utrechtuniversity-purple}{cmyk}{80,100,0,0}
+\defineCMYKcolor{uu-black}{20,0,0,100}
+\defineCMYKcolor{uu-white}{0,0,0,0}
+\defineCMYKcolor{uu-yellow}{0,15,100,0}
+\defineCMYKcolor{uu-red}{0,100,80,0}
+\defineCMYKcolor{uu-creme}{0,10,40,0}
+\defineCMYKcolor{uu-orange}{0,50,65,0}
+\defineCMYKcolor{uu-bordeaux}{30,100,40,10}
+\defineCMYKcolor{uu-brown}{35,70,80,50}
+\defineCMYKcolor{uu-green}{75,8,50,0}
+\defineCMYKcolor{uu-blue}{70,40,0,0}
+\defineCMYKcolor{uu-darkblue}{100,80,0,70}
+\defineCMYKcolor{uu-purple}{80,100,0,0}
 
 %% Additional personal colours
 \definecolor{laurensstoop-orange}{cmyk}{0.02,0.56,0.84,0}
@@ -213,7 +226,7 @@
 \if@print
     \colorlet{title}{laurensstoop-green}
 \else
-    \colorlet{title}{laurensstoop-green} %{utrechtuniversity-cyan}
+    \colorlet{title}{laurensstoop-green} %{uu-cyan}
 \fi
 \colorlet{thumb}{laurensstoop-green}
 
@@ -307,15 +320,15 @@
 \usetikzlibrary{calc}
 
 % Colours of the chapters
-\definecolor{thumb0}{cmyk}{100,80,0,70} % blue
-\definecolor{thumb1}{cmyk}{80,100,0,0} % purple
-\definecolor{thumb2}{cmyk}{0,100,80,0} % reddish
-\definecolor{thumb3}{cmyk}{0,15,100,0} % orange
-\definecolor{thumb4}{cmyk}{80,100,0,0} % purple
-\definecolor{thumb5}{cmyk}{80,100,0,0} % purple
-\definecolor{thumb6}{cmyk}{100,80,0,70} % blue
-\definecolor{thumb7}{cmyk}{100,80,0,70} % blue
-\definecolor{thumb8}{cmyk}{20,0,0,100} % black
+\defineCMYKcolor{thumb0}{100,80,0,70} % blue
+\defineCMYKcolor{thumb1}{80,100,0,0} % purple
+\defineCMYKcolor{thumb2}{0,100,80,0} % reddish
+\defineCMYKcolor{thumb3}{0,15,100,0} % orange
+\defineCMYKcolor{thumb4}{80,100,0,0} % purple
+\defineCMYKcolor{thumb5}{80,100,0,0} % purple
+\defineCMYKcolor{thumb6}{100,80,0,70} % blue
+\defineCMYKcolor{thumb7}{100,80,0,70} % blue
+\defineCMYKcolor{thumb8}{20,0,0,100} % black
 
 
 %%% THIS IS WHERE WE CAN ADD A CLIMATE STRIPE THUMB
@@ -340,7 +353,7 @@
             %% Print the chapter number at the center right in the thumb index.
             \coordinate (center right) at ($(bottom right)+(0pt,0.5\thumbheight)$);
             \node at (center right)[anchor=east,inner sep=2\thumbedge]{
-                \titlefont\bfseries\color{utrechtuniversity-white}
+                \titlefont\bfseries\color{uu-white}
                 \fontsize{0.75\thumbheight}{0.75\thumbheight}\selectfont
                 \thechapter
             };
@@ -366,7 +379,7 @@
             %% Print the chapter number at the center right in the thumb index.
             \coordinate (center left) at ($(bottom left)+(0pt,0.5\thumbheight)$);
             \node at (center left)[anchor=west,inner sep=2\thumbedge]{
-                \titlefont\bfseries\color{utrechtuniversity-white}
+                \titlefont\bfseries\color{uu-white}
                 \fontsize{0.75\thumbheight}{0.75\thumbheight}\selectfont
                 \thechapter
             };

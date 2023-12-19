@@ -20,7 +20,7 @@ pdflatex main
 pdflatex main
 ```
 
-Or by selecting the 'pdfLaTeX' and 'Biber' options in your favourite TeX editing program, respectively. Note that you have to run biber for every chapter.
+Or by selecting the 'pdfLaTeX' and 'Biber' options in your favourite TeX editing program, respectively.
 
 A sample document, as well as documentation for template options, can be found
 in main.pdf. 

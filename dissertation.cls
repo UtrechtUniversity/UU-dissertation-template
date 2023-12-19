@@ -190,10 +190,10 @@
 
 
 
-%%%% This code chunk is to fix UU's use of 0-255 color definitions
+%%%% This code chunk is to fix UU's use of 0-100 color definitions
 %% See: https://tex.stackexchange.com/a/234882
 {\lccode`\?=`\p \lccode`\!=`\t  \lowercase{\gdef\ignorept#1?!{#1}}}
-\def\divbyccvv#1{\expandafter\ignorept\the\dimexpr#1pt/255\relax}
+\def\divbyccvv#1{\expandafter\ignorept\the\dimexpr#1pt/100\relax}
 
 \def\defineCMYKcolor#1#2{\defineCMYKcolorA{#1}#2,} 
 \def\defineCMYKcolorA#1#2,#3,#4,#5,{\edef\tmp{\noexpand\definecolor{#1}{cmyk}%

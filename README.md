@@ -37,6 +37,7 @@ When you use the template for the first time, you might encounter some of the is
    
    This means that the font map file was not created or linked, which is needed for the Type1 version of the font. Usually you can resolve this by installing the fonts (if you have not already done so) for your specific distribution (check the installed packages) and then refresh the font map files. This last step may depend on the TeX distribution you are using. For example, in the MiKTeX console, you can do this by clicking "Refresh font map files" in the "Tasks" drop down menu.
 
+If this doesn't work on Windows you can try the following solution with updmap.exe: https://tex.stackexchange.com/questions/247492/problem-with-fourier-package-the-text-disappears.
 
 
 

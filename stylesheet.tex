@@ -229,7 +229,7 @@
 \renewcommand{\cftpartpresnum}{\hypersetup{linkcolor=thumb\arabic{colorcounter}}}
 
 \titlecontents{part}%
-[0pt]{\stepcounter{colorcounter}\color{thumb\arabic{colorcounter}}\bfseries\large\protect\addvspace{10pt}\titlerule[1pt]\addvspace{1.3ex}}
+[0pt]{\color{thumb\arabic{colorcounter}}\bfseries\large\protect\addvspace{10pt}\titlerule[1pt]\addvspace{1.3ex}}
 {}{\partname~}
 {\hfill\contentspage}%
 [\addvspace{0.7ex} {\titlerule[1pt]} \addvspace{5pt}]%
@@ -238,8 +238,6 @@
 \renewcommand{\cftchappagefont}{\bfseries\color{thumb\arabic{colorcounter}}}
 
 \renewcommand{\thepart}{\color{thumb\arabic{colorcounter}}\Roman{part}} % Adjust the color of the part as well
-
-\DeclareRobustCommand{\IncCLR}{\protect\stepcounter{colorcounter}}
 
 \newcounter{thumbcounter}
 \newcounter{colorcounter}

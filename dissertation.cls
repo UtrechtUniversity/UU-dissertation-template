@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%		~~~~ EDITOR'S NOTE ~~~~
+%%%%        ~~~~ EDITOR'S NOTE ~~~~
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % This file contains the definition of the disseration class
@@ -10,18 +10,18 @@
 %                       - Comments, remarks and more: email me at laurensstoop@protonmail.com
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%	 	 ~~~~ END OF: EDITOR'S NOTE ~~~~
+%%%%         ~~~~ END OF: EDITOR'S NOTE ~~~~
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%            ~~~~ Dissertation class definitions ~~~~
+%%%%         ~~~~ Dissertation class definitions ~~~~
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 % The base class definition, we require LaTeX2e and provide the dissertation class
-% 		- Based on the  TU Delft dissertation class (v1.0) 08-07-2013
+%       - Based on the  TU Delft dissertation class (v1.0) 08-07-2013
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{dissertation}[2023/04/18 v0.4 Laurens Stoop dissertation class]
 
@@ -40,8 +40,8 @@
 
 
 % Correct alignment of english text
-%		- can be set to most of standard languages
-%		- call by english language name, i.e. 'dutch' instead of 'nederlands'
+%       - can be set to most of standard languages
+%       - call by english language name, i.e. 'dutch' instead of 'nederlands'
 \usepackage[british]{babel}
 
 \RequirePackage{amsmath}
@@ -145,7 +145,7 @@
         ItalicFont = *-Italic,
         BoldItalicFont = *-BoldItalic
     ]{BookmanOldStyle}
-	\setmainfont[
+    \setmainfont[
         Path = fonts/,
         Extension = .ttf,
         BoldFont = *-Bold,
@@ -200,20 +200,40 @@
       {\divbyccvv{#2},\divbyccvv{#3},\divbyccvv{#4},\divbyccvv{#5}}}\tmp
 }
 
+%% Change color model based on print option
+\if@print%
+    \selectcolormodel{cmyk}
+\else
+    \selectcolormodel{rgb}
+\fi
 
-%% Define the Utrecht University house style colors.
-\defineCMYKcolor{uu-black}{20,0,0,100}
-\defineCMYKcolor{uu-white}{0,0,0,0}
-\defineCMYKcolor{uu-yellow}{0,15,100,0}
-\defineCMYKcolor{uu-red}{0,100,80,0}
-\defineCMYKcolor{uu-creme}{0,10,40,0}
-\defineCMYKcolor{uu-orange}{0,50,65,0}
-\defineCMYKcolor{uu-bordeaux}{30,100,40,10}
-\defineCMYKcolor{uu-brown}{35,70,80,50}
-\defineCMYKcolor{uu-green}{75,8,50,0}
-\defineCMYKcolor{uu-blue}{70,40,0,0}
-\defineCMYKcolor{uu-darkblue}{100,80,0,70}
-\defineCMYKcolor{uu-purple}{80,100,0,0}
+\if@print
+    \defineCMYKcolor{uu-black}{20,0,0,100}
+    \defineCMYKcolor{uu-white}{0,0,0,0}
+    \defineCMYKcolor{uu-yellow}{0,15,100,0}
+    \defineCMYKcolor{uu-red}{0,100,80,0}
+    \defineCMYKcolor{uu-cream}{0,10,40,0}
+    \defineCMYKcolor{uu-orange}{0,50,65,0}
+    \defineCMYKcolor{uu-burgundy}{30,100,40,10}
+    \defineCMYKcolor{uu-brown}{35,70,80,50}
+    \defineCMYKcolor{uu-green}{75,8,50,0}
+    \defineCMYKcolor{uu-blue}{70,40,0,0}
+    \defineCMYKcolor{uu-darkblue}{100,80,0,70}
+    \defineCMYKcolor{uu-purple}{80,100,0,0}
+\else
+    \definecolor{uu-black}{RGB}{0,0,0}
+    \definecolor{uu-white}{RGB}{255,255,255}
+    \definecolor{uu-yellow}{RGB}{255,205,0}
+    \definecolor{uu-red}{RGB}{192,10,53}
+    \definecolor{uu-cream}{RGB}{250,230,171}
+    \definecolor{uu-orange}{RGB}{243,150,94}
+    \definecolor{uu-burgundy}{RGB}{170,21,85}
+    \definecolor{uu-brown}{RGB}{110,59,35}
+    \definecolor{uu-green}{RGB}{36,167,147}
+    \definecolor{uu-blue}{RGB}{82,135,198}
+    \definecolor{uu-darkblue}{RGB}{0,18,64}
+    \definecolor{uu-purple}{RGB}{91,33,130}
+\fi
 
 %% Additional personal colours
 \definecolor{laurensstoop-orange}{cmyk}{0.02,0.56,0.84,0}
@@ -230,23 +250,56 @@
 \fi
 \colorlet{thumb}{laurensstoop-green}
 
-%% Set the paper size to 17 by 24 cm, approximately halfway between A4 and A5.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ Layout
+
+%% Define some lengths:
+\newlength{\bleedsize}
+\newlength{\basemargin}
+\newlength{\bindingoff}
+\newlength{\pagewidth}
+\newlength{\pageheight}
+%% A margin of 2cm is safe and recommended by most printers
+\setlength\basemargin{20mm}
+%% Add additional space to the inner margin to compensate for the binding
+\setlength\bindingoff{5mm}
+%% Set the paper size to 17 by 24 cm, the standard for dissertations.
+\setlength\pagewidth{170mm}
+\setlength\pageheight{240mm}
+%% Add 3mm bleed (page extension) around the outer edges of each page
+\setlength\bleedsize{3mm}
+
 \if@print
     %% In print mode we add a 3 mm bleed on the outside of the page.
+    %% We use 20 mm all around, with an additional 5mm on the inside
+    %% if the print option is active (this is corrected for in the
+    %% non-print version).
     \geometry{
-        papersize = {174mm,246mm},
-        layoutsize = {167mm,240mm},
-        layoutoffset = {3mm,0mm},
-        bindingoffset = 3mm
+        papersize = {\pagewidth + \bleedsize, \pageheight + 2\bleedsize},
+        layoutsize = {\pagewidth - \bleedsize, \pageheight},
+        layoutoffset = {\bleedsize, \bleedsize},
+        bindingoffset = -\bleedsize,
+        top = \basemargin + 5mm,
+        bottom = \basemargin,
+        inner = \basemargin + \bindingoff,
+        outer = \basemargin,
+        marginparwidth = 0mm,
+        marginparsep = 0mm
     }
 \else
-	 \geometry{
-	 	papersize={185mm,255mm},
-	    bindingoffset = 15mm
-	 }
+     \geometry{
+        papersize= {\pagewidth, \pageheight},
+        layoutsize = {\pagewidth, \pageheight},
+        layoutoffset = {0mm, 0mm},
+        top = \basemargin + 5mm,
+        bottom = \basemargin,
+        inner = \basemargin + 0.5\bindingoff,
+        outer = \basemargin + 0.5\bindingoff,
+        marginparwidth = 0mm,
+        marginparsep = 0mm
+     }
 \fi
-%% We decrease the margins slightly from the default (scale = 0.7).
-\geometry{hscale=0.75,vscale=0.8}
 
 %% Redefine the title command to accept an optional subtitle.
 \renewcommand*\title[2][]{%
@@ -276,21 +329,28 @@
     \fi%
 }
 
+%% Print cropmarks of 2mm length indicating the actual papersize (so, without the
+%% 3mm bleed at the outer edges. Optional to add another cropmark to indicate the
+%% edge of the bindingoffset.
 \if@print%
     \newcommand*\cropmarks{%
         \ifodd\c@page%
             \begin{tikzpicture}[remember picture,overlay]
-                \draw ($(current page.north east)+(0mm,-3mm)$) -- ($(current page.north east)+(-2mm,-3mm)$);
-                \draw ($(current page.north east)+(-3mm,0mm)$) -- ($(current page.north east)+(-3mm,-2mm)$);
-                \draw ($(current page.south east)+(0mm,3mm)$) -- ($(current page.south east)+(-2mm,3mm)$);
-                \draw ($(current page.south east)+(-3mm,0mm)$) -- ($(current page.south east)+(-3mm,2mm)$);
+                \draw ($(current page.north east)+(0mm,-\bleedsize)$) -- ($(current page.north east)+(1mm - \bleedsize,-\bleedsize)$);
+                \draw ($(current page.north east)+(-\bleedsize,0mm)$) -- ($(current page.north east)+(-\bleedsize,1mm - \bleedsize)$);
+                \draw ($(current page.south east)+(0mm,\bleedsize)$) -- ($(current page.south east)+(1mm - \bleedsize,\bleedsize)$);
+                \draw ($(current page.south east)+(-\bleedsize,0mm)$) -- ($(current page.south east)+(-\bleedsize,\bleedsize - 1mm)$);
+                %\draw ($(current page.north west)+(\bindingoff,0mm)$) -- ($(current page.north west)+(\bindingoff,1mm - \bleedsize)$);
+                %\draw ($(current page.south west)+(\bindingoff,0mm)$) -- ($(current page.south west)+(\bindingoff,\bleedsize - 1mm)$);
             \end{tikzpicture}%
         \else%
             \begin{tikzpicture}[remember picture,overlay]
-                \draw ($(current page.north west)+(0mm,-3mm)$) -- ($(current page.north west)+(2mm,-3mm)$);
-                \draw ($(current page.north west)+(3mm,0mm)$) -- ($(current page.north west)+(3mm,-2mm)$);
-                \draw ($(current page.south west)+(0mm,3mm)$) -- ($(current page.south west)+(2mm,3mm)$);
-                \draw ($(current page.south west)+(3mm,0mm)$) -- ($(current page.south west)+(3mm,2mm)$);
+                \draw ($(current page.north west)+(0mm,-\bleedsize)$) -- ($(current page.north west)+(\bleedsize - 1mm,-\bleedsize)$);
+                \draw ($(current page.north west)+(\bleedsize,0mm)$) -- ($(current page.north west)+(\bleedsize,1mm - \bleedsize)$);
+                \draw ($(current page.south west)+(0mm,\bleedsize)$) -- ($(current page.south west)+(\bleedsize - 1mm,\bleedsize)$);
+                \draw ($(current page.south west)+(\bleedsize,0mm)$) -- ($(current page.south west)+(\bleedsize,\bleedsize - 1mm)$);
+                %\draw ($(current page.north east)+(-\bindingoff,0mm)$) -- ($(current page.north east)+(-\bindingoff,1mm - \bleedsize)$);
+                %\draw ($(current page.south east)+(-\bindingoff,0mm)$) -- ($(current page.south east)+(-\bindingoff,\bleedsize - 1mm)$);
             \end{tikzpicture}%
         \fi%
     }
@@ -420,7 +480,7 @@
 %% The mainmatter style is default for normal pages.
 \pagestyle{mainmatter}
 
-%% Print the current chapter and section at the top of the page in cyan.
+%% Print the current chapter and section at the top of the page in color.
 \renewcommand*\chaptermark[1]{\markboth{\thechapter.\ \color{thumb\arabic{thumbcounter}}#1}{}}
 \renewcommand*\sectionmark[1]{\markright{\thesection.\ \color{thumb\arabic{thumbcounter}}#1}}
 
@@ -564,11 +624,11 @@
     \lettrine[lines=3,findent=0.2em,nindent=0pt]{\color{thumb\arabic{thumbcounter}} #1}{#2}%
 }
 
-%% Rename bibliography to reference and add colour properties
+%% Rename bibliography to reference and add color properties
 %\renewcommand\bibname{\color{thumb\arabic{thumbcounter}}References}%
 
 
-%% Hyperlinks are cyan, except in print mode, when they are all black.
+%% Hyperlinks are all black.
 \hypersetup{
     colorlinks = true,
     citecolor = black,

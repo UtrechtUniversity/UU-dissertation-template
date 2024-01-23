@@ -74,6 +74,13 @@
 
 \usepackage{csquotes}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ~~~~ PDF Settings
+
+%% Fix inclusion of color name in PDF TOC
+\pdfstringdefDisableCommands{%
+	\def\color#1#{\@gobble}%
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% ~~~~ Crop & tick marks

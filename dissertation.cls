@@ -320,15 +320,16 @@
 \usetikzlibrary{calc}
 
 % Colours of the chapters
-\defineCMYKcolor{thumb0}{100,80,0,70} % blue
-\defineCMYKcolor{thumb1}{80,100,0,0} % purple
-\defineCMYKcolor{thumb2}{0,100,80,0} % reddish
-\defineCMYKcolor{thumb3}{0,15,100,0} % orange
-\defineCMYKcolor{thumb4}{80,100,0,0} % purple
-\defineCMYKcolor{thumb5}{80,100,0,0} % purple
-\defineCMYKcolor{thumb6}{100,80,0,70} % blue
-\defineCMYKcolor{thumb7}{100,80,0,70} % blue
-\defineCMYKcolor{thumb8}{20,0,0,100} % black
+\defineCMYKcolor{thumb0}{30,100,40,10} % uu-bordeaux
+\defineCMYKcolor{thumb1}{0,100,80,0} % uu-red
+\defineCMYKcolor{thumb2}{0,15,100,0} % uu-yellow
+\defineCMYKcolor{thumb3}{0,50,65,0} % uu-orange
+\defineCMYKcolor{thumb4}{75,8,50,0} % uu-green
+\defineCMYKcolor{thumb5}{70,40,0,0} % uu-blue
+\defineCMYKcolor{thumb6}{80,100,0,0} % uu-purple
+\defineCMYKcolor{thumb7}{100,80,0,70} % uu-darkblue
+\defineCMYKcolor{thumb8}{35,70,80,50} % uu-brown
+\defineCMYKcolor{thumb9}{0,10,40,0} % uu-creme
 
 
 %%% THIS IS WHERE WE CAN ADD A CLIMATE STRIPE THUMB
@@ -349,7 +350,7 @@
             \coordinate (top left) at ($(top left)-(\thumbedge,0pt)$);
             %% Draw the thumb index.
             %\fill[fill=thumb,rounded corners=\thumbedge](top left) rectangle (bottom right);
-            \fill[fill=thumb\arabic{thumbcounter},rounded corners=\thumbedge](top left) rectangle (bottom right);
+            \fill[fill=thumb\arabic{colorcounter},rounded corners=\thumbedge](top left) rectangle (bottom right);
             %% Print the chapter number at the center right in the thumb index.
             \coordinate (center right) at ($(bottom right)+(0pt,0.5\thumbheight)$);
             \node at (center right)[anchor=east,inner sep=2\thumbedge]{
@@ -375,7 +376,7 @@
             \coordinate (top right) at ($(top right)+(\thumbedge,0pt)$);
             %% Draw the thumb index.
             %\fill[fill=thumb,rounded corners=\thumbedge](top right) rectangle (bottom left);
-            \fill[fill=thumb\arabic{thumbcounter},rounded corners=\thumbedge](top right) rectangle (bottom left);
+            \fill[fill=thumb\arabic{colorcounter},rounded corners=\thumbedge](top right) rectangle (bottom left);
             %% Print the chapter number at the center right in the thumb index.
             \coordinate (center left) at ($(bottom left)+(0pt,0.5\thumbheight)$);
             \node at (center left)[anchor=west,inner sep=2\thumbedge]{
@@ -421,12 +422,12 @@
 \pagestyle{mainmatter}
 
 %% Print the current chapter and section at the top of the page in cyan.
-\renewcommand*\chaptermark[1]{\markboth{\thechapter.\ \color{thumb\arabic{thumbcounter}}#1}{}}
-\renewcommand*\sectionmark[1]{\markright{\thesection.\ \color{thumb\arabic{thumbcounter}}#1}}
+\renewcommand*\chaptermark[1]{\markboth{\thechapter.\ \color{thumb\arabic{colorcounter}}#1}{}}
+\renewcommand*\sectionmark[1]{\markright{\thesection.\ \color{thumb\arabic{colorcounter}}#1}}
 
 %% The setheader command can be used to print the title of unnumbered chapters
 %% in the page header.
-\newcommand*\setheader[1]{\markboth{\color{thumb\arabic{thumbcounter}}#1}{\color{thumb\arabic{thumbcounter}}#1}}
+\newcommand*\setheader[1]{\markboth{\color{thumb\arabic{colorcounter}}#1}{\color{thumb\arabic{colorcounter}}#1}}
 
 %% Change the headrule command (from fancyhdr.sty) to draw the line below the
 %% header in the title color.
@@ -434,14 +435,14 @@
     \if@fancyplain%
         \let\headrulewidth\plainheadrulewidth%
     \fi%
-    {\color{thumb\arabic{thumbcounter}}\hrule\@height\headrulewidth\@width\headwidth}%
+    {\color{thumb\arabic{colorcounter}}\hrule\@height\headrulewidth\@width\headwidth}%
     \vskip-\headrulewidth%
 }
 
 %% Draw the line above a footnote in the title color as well.
 \renewcommand*\footnoterule{%
     \vspace*{-3pt}%
-    {\color{thumb\arabic{thumbcounter}}\hrule width 0.5\textwidth height 0.4pt}%
+    {\color{thumb\arabic{colorcounter}}\hrule width 0.5\textwidth height 0.4pt}%
     \vspace*{2.6pt}%
 }
 
@@ -451,7 +452,7 @@
     {\flushright\titlestyle}
     {\Large Part \fontsize{96pt}{96pt}\selectfont\bfseries{\color{black}\renewcommand\color[2][]{}\thepart}}
     {0pt}
-    {\Huge\color{thumb\arabic{thumbcounter}}}
+    {\Huge\color{thumb\arabic{colorcounter}}}
 %% Separate the title from the text by two empty lines.
 \titlespacing{\part}{0pt}{0pt}{2\baselineskip}
 %% In the table of contents, the part name is preceded by an empty line, printed
@@ -463,7 +464,7 @@
     {\flushright\titlestyle}
     {\fontsize{96pt}{96pt}\selectfont\bfseries\thechapter}
     {0pt}
-    {\Huge\color{thumb\arabic{thumbcounter}}}
+    {\Huge\color{thumb\arabic{colorcounter}}}
 \titlespacing{\chapter}{0pt}{0pt}{2\baselineskip}
 %% In the table of contents, a chapter is similar to a part, except that it is
 %% preceded by half an empty line.
@@ -475,7 +476,7 @@
     {\Large\headerstyle}
     {\bfseries\thesection.\ }
     {0pt}
-    {\color{thumb\arabic{thumbcounter}}}
+    {\color{thumb\arabic{colorcounter}}}
 %% Sections are preceded by an empty line.
 \titlespacing{\section}{0pt}{\baselineskip}{12pt}
 %% In the table of contents, section names are followed by a line of dots 8pt
@@ -488,7 +489,7 @@
     {\large\headerstyle}
     {\bfseries\thesubsection.\ }
     {0pt}
-    {\color{thumb\arabic{thumbcounter}}}
+    {\color{thumb\arabic{colorcounter}}}
 \titlespacing{\subsection}{0pt}{\baselineskip}{0pt}
 \dottedcontents{subsection}[7em]{\titlefont}{3.2em}{8pt}
 
@@ -498,17 +499,17 @@
     {\large\headerstyle}
     {}
     {0pt}
-    {\color{thumb\arabic{thumbcounter}}}
+    {\color{thumb\arabic{colorcounter}}}
 %% Subsubsections are preceded by an empty line and do not appear in the table
 %% of contents.
 \titlespacing{\subsubsection}{0pt}{\baselineskip}{0pt}
 
 %% Color the bullets of the itemize environment and make the symbol of the third
 %% level a diamond instead of an asterisk.
-\renewcommand*\labelitemi{\color{thumb\arabic{thumbcounter}}\textbullet}
-\renewcommand*\labelitemii{\color{thumb\arabic{thumbcounter}}--}
-\renewcommand*\labelitemiii{\color{thumb\arabic{thumbcounter}}$\diamond$}
-\renewcommand*\labelitemiv{\color{thumb\arabic{thumbcounter}}\textperiodcentered}
+\renewcommand*\labelitemi{\color{thumb\arabic{colorcounter}}\textbullet}
+\renewcommand*\labelitemii{\color{thumb\arabic{colorcounter}}--}
+\renewcommand*\labelitemiii{\color{thumb\arabic{colorcounter}}$\diamond$}
+\renewcommand*\labelitemiv{\color{thumb\arabic{colorcounter}}\textperiodcentered}
 
 %% The dedication is vertically centered on a separate page and flushed to the
 %% right.
@@ -561,7 +562,7 @@
 %% beginning of a section.
 \renewcommand*\LettrineTextFont{\titleshape}
 \newcommand*\dropcap[2]{
-    \lettrine[lines=3,findent=0.2em,nindent=0pt]{\color{thumb\arabic{thumbcounter}} #1}{#2}%
+    \lettrine[lines=3,findent=0.2em,nindent=0pt]{\color{thumb\arabic{colorcounter}} #1}{#2}%
 }
 
 %% Rename bibliography to reference and add colour properties

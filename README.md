@@ -1,6 +1,6 @@
 # Utrecht University dissertation template
 
-Version 0.4
+Version 0.5
 
 <!-- For future use: ![Latest release](https://img.shields.io/github/v/release/UtrechtUniversity/UU-dissertation-template?style=flat-square) -->
 

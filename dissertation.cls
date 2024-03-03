@@ -390,10 +390,6 @@
 \defineCMYKcolor{thumb7}{100,80,0,70} % blue
 \defineCMYKcolor{thumb8}{20,0,0,100} % black
 
-
-%%% THIS IS WHERE WE CAN ADD A CLIMATE STRIPE THUMB
-% Temperature scale covering the last X years or years of my life within the disserations
-
 %% The lthumb command prints the current chapter number in a thumb index on the
 %% left (even) page.
 \newcommand*\lthumb{%
@@ -413,9 +409,9 @@
             %% Print the chapter number at the center right in the thumb index.
             \coordinate (center right) at ($(bottom right)+(0pt,0.5\thumbheight)$);
             \node at (center right)[anchor=east,inner sep=2\thumbedge]{
-                \titlefont\bfseries\color{uu-white}
+                \titlefont\bfseries\color{white}
                 \fontsize{0.75\thumbheight}{0.75\thumbheight}\selectfont
-                \thechapter
+                \arabic{thumbcounter}
             };
         \end{tikzpicture}%
     \fi%
@@ -439,9 +435,9 @@
             %% Print the chapter number at the center right in the thumb index.
             \coordinate (center left) at ($(bottom left)+(0pt,0.5\thumbheight)$);
             \node at (center left)[anchor=west,inner sep=2\thumbedge]{
-                \titlefont\bfseries\color{uu-white}
+                \titlefont\bfseries\color{white}
                 \fontsize{0.75\thumbheight}{0.75\thumbheight}\selectfont
-                \thechapter
+                \arabic{thumbcounter}
             };
         \end{tikzpicture}%
     \fi%

@@ -131,11 +131,10 @@
 \pagenumbering{arabic}
 
 %% Turn on thumb indices.
+%% Make sure to initialize the thumbcounter to the desired initial
+%% value using the \setcounter command immediately after turning
+%% thumb indices on for the first time.
 \thumbtrue
-
-
-
-
 
 
 
@@ -149,7 +148,7 @@
 
 %%%% Part-title and properties
 %% Progress the thumbcounter
-\stepcounter{thumbcounter}
+\setcounter{thumbcounter}{1}
 %% Colour to use for this part
 \setcounter{colorcounter}{1}
 %% Name and label

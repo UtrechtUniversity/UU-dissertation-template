@@ -74,26 +74,13 @@
 
 \usepackage{csquotes}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% ~~~~ Crop & tick marks
+%%%% ~~~~ PDF Settings
 
-%% CROP package
-% Redefine the behaviour of Crop based on the actual document size and some other mumbo
-% Cut marks
-% Crop marks
-%
-%\usepackage[
-%% set width and height to a4 width and height + 6mm
-%width=21.6truecm, height=30.3truecm,
-%% use any combination of these options to add different cut markings
-%cam,noinfo,
-%% set the type of TeX renderer you use
-%pdftex,
-%% center the contents
-%center
-%]{crop}
-
+%% Fix inclusion of color name in PDF TOC
+\pdfstringdefDisableCommands{%
+	\def\color#1#{\@gobble}%
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% ~~~~ Left-opening pages
@@ -149,18 +136,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% ~~~~ Page tweaking
 
-%\setlength{\oddsidemargin}{-13pt}
-%\setlength{\evensidemargin}{-10pt}
-\setlength{\voffset}{18pt}
-
-
-
 %% Remove the marginpar
 \setlength{\marginparwidth}{0pt}
 
 
 % Layout settings:
-\renewcommand{\headrulewidth}{1.5pt}% 2pt header rule
+\renewcommand{\headrulewidth}{1.5pt}% 1.5pt header rule
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -255,7 +236,7 @@
 \renewcommand{\cftpartpresnum}{\hypersetup{linkcolor=thumb\arabic{colorcounter}}}
 
 \titlecontents{part}%
-[0pt]{\stepcounter{colorcounter}\color{thumb\arabic{colorcounter}}\bfseries\large\protect\addvspace{10pt}\titlerule[1pt]\addvspace{1.3ex}}
+[0pt]{\color{thumb\arabic{colorcounter}}\bfseries\large\protect\addvspace{10pt}\titlerule[1pt]\addvspace{1.3ex}}
 {}{\partname~}
 {\hfill\contentspage}%
 [\addvspace{0.7ex} {\titlerule[1pt]} \addvspace{5pt}]%
@@ -264,8 +245,6 @@
 \renewcommand{\cftchappagefont}{\bfseries\color{thumb\arabic{colorcounter}}}
 
 \renewcommand{\thepart}{\color{thumb\arabic{colorcounter}}\Roman{part}} % Adjust the color of the part as well
-
-\DeclareRobustCommand{\IncCLR}{\protect\stepcounter{colorcounter}}
 
 \newcounter{thumbcounter}
 \newcounter{colorcounter}

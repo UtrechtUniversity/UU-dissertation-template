@@ -86,6 +86,7 @@
 %%%% ~~~~ Left-opening pages
 
 %% This would allow for opening on left page of chapters
+%% N.B.: Not fully working / fixed, left for now if someone wants to improve this component
 %
 % First option
 %
@@ -103,8 +104,9 @@
 %%%% ~~~~ Bibliography
 
 %% Definition of the bibliography and related packages
+%% See biblatex background information for choices that could be made here.
 % \usepackage[style=authoryear-comp,backend=biber,maxbibnames=10]{biblatex}
-\usepackage[style=nature,backend=biber,maxbibnames=30]{biblatex}
+\usepackage[style=nature,backend=biber,doi=true,maxbibnames=30]{biblatex}
 
 %% For optional bibliography per chapter
 %\usepackage{chapterbib}

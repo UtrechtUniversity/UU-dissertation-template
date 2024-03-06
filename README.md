@@ -1,6 +1,6 @@
 # Utrecht University dissertation template
 
-Version 0.5
+Version 1.0
 
 <!-- For future use: ![Latest release](https://img.shields.io/github/v/release/UtrechtUniversity/UU-dissertation-template?style=flat-square) -->
 
@@ -8,7 +8,7 @@ This is a Utrecht University dissertation template for LaTeX. While it is loosel
 
 It is designed to work with all versions of LaTeX, but if you want to adhere to the UU housestyle (some legacy there), you need add the UU fonts and use XeLaTeX, as it supports TrueType and OpenType fonts. 
 
-We welcome all input and any suggestions or examples using this template.
+We welcome all input and any suggestions or examples of using this template, for those a showcase will be made here.
 
 ## Using the template
 

@@ -15,7 +15,7 @@ We welcome all input and any suggestions or examples of using this template, for
 The document can be compiled with ```latexmk```, alternatively by running:
 ```sh
 pdflatex main
-biber references
+biber main
 pdflatex main
 pdflatex main
 ```

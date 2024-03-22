@@ -1,0 +1,3 @@
+# Makes git use the correct line-endings on the appropriate OS (Windows=CRLF,
+# Linux/Mac=LF). See: man gitattributes
+* text=auto

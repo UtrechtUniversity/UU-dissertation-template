@@ -4,7 +4,7 @@ Version 1.0
 
 <!-- For future use: ![Latest release](https://img.shields.io/github/v/release/UtrechtUniversity/UU-dissertation-template?style=flat-square) -->
 
-This is a Utrecht University dissertation template for LaTeX. While it is loosely based on the TU Delft template, it should follow the required content and textual obligations as provided in the doctoral degree regulations and the 'aanwijzingen voor promovendi'. 
+This is a Utrecht University dissertation (or PhD Thesis) template for LaTeX. While it is loosely based on the TU Delft template, it should follow the required content and textual obligations as provided in the doctoral degree regulations and the 'aanwijzingen voor promovendi'. 
 
 It is designed to work with all versions of LaTeX, but if you want to adhere to the UU housestyle (some legacy there), you need add the UU fonts and use XeLaTeX, as it supports TrueType and OpenType fonts. 
 

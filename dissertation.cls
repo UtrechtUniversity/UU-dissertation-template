@@ -406,7 +406,6 @@
     \definecolor{thumb3}{RGB}{243,150,94} % uu-orange
     \definecolor{thumb4}{RGB}{36,167,147} % uu-green
     \definecolor{thumb5}{RGB}{82,135,198} % uu-blue
-
     \definecolor{thumb6}{RGB}{91,33,130} % uu-purple
     \definecolor{thumb7}{RGB}{0,18,64} % uu-darkblue
     \definecolor{thumb8}{RGB}{110,59,35} % uu-brown

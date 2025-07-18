@@ -216,14 +216,14 @@ All rights reserved. No part of this publication may be reproduced, stored in a 
         %% NB: be very mindfull of the lower case lettering used!!!
         %% NB: basically; do not change this bit
         ter verkrijging van de graad van doctor aan de Universiteit Utrecht\\[\medskipamount]
-        op gezag van de rector magnificus, prof.dr.\ H.R.B.M.~Kummeling,\\[\medskipamount]
+        op gezag van de rector magnificus, prof.dr.ir.\ W.~Hazeleger,\\[\medskipamount]
         ingevolge het besluit van het college voor promoties\\[\medskipamount]
         in het openbaar te verdedigen\\[\medskipamount]
         %%%% Change to relevant date for defense
         %% written as: dayofweek(text) date(number) month(text)  year(number)
         %% if in the morning use: des ochtends te XX.XX uur (use 12-hour format)
         %% if in the afternoon use: des middags te XX.XX uur (use 12-hour format)
-        op woensdag DD mmmmm YYYY  des ochtends te UU.UU uur
+        op woensdag DD mmmmm YYYY  des ochtends te U.UU uur
 
         %% Include some whitespace
         \bigskip
@@ -240,7 +240,7 @@ All rights reserved. No part of this publication may be reproduced, stored in a 
         %%%% Full name
         %% Print the full name of the author.
         {\makeatletter
-        \Large\titlefont\bfseries\@firstname~{\titleshape\@lastname}
+        \Large\titlefont\bfseries\@firstname~\@middlename~{\titleshape\@lastname}
         \makeatother}
 
 
@@ -253,6 +253,7 @@ All rights reserved. No part of this publication may be reproduced, stored in a 
 
         %%%% Change to relevant date of birth and town
         %% NB: include country if not born in the Netherlands
+        %% NB: date of birth optional due to privacy considerations
         geboren op DD month YYYY te CITY
 
 

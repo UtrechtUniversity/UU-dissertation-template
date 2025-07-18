@@ -311,11 +311,13 @@
     %% Add the title to the PDF meta data.
     \hypersetup{pdftitle=#2}%
 }
-%% Redefine the author command to accept a first and last name, and to add the
-%% full name to the PDF meta data.
-\renewcommand*\author[2]{%
+%% Redefine the author command to accept a first, last, and middle name,
+%% and to add the full name to the PDF meta data.
+%% Middle name is used in title page.
+\renewcommand*\author[3]{%
     \def\@firstname{#1}%
     \def\@lastname{#2}%
+    \def\@middlename{#3}%
     \hypersetup{pdfauthor=#1\ #2}%
 }
 
@@ -382,17 +384,36 @@
 %% indices.
 \usetikzlibrary{calc}
 
-% Colours of the chapters
-\defineCMYKcolor{thumb0}{30,100,40,10} % uu-bordeaux
-\defineCMYKcolor{thumb1}{0,100,80,0} % uu-red
-\defineCMYKcolor{thumb2}{0,15,100,0} % uu-yellow
-\defineCMYKcolor{thumb3}{0,50,65,0} % uu-orange
-\defineCMYKcolor{thumb4}{75,8,50,0} % uu-green
-\defineCMYKcolor{thumb5}{70,40,0,0} % uu-blue
-\defineCMYKcolor{thumb6}{80,100,0,0} % uu-purple
-\defineCMYKcolor{thumb7}{100,80,0,70} % uu-darkblue
-\defineCMYKcolor{thumb8}{35,70,80,50} % uu-brown
-\defineCMYKcolor{thumb9}{0,10,40,0} % uu-creme
+%% Colours of the chapters
+%% Use CYMK for printing and RGB for not-printing (digital)
+%% Note: uu-yellow is hard to read when used for chapters
+\if@print
+    \defineCMYKcolor{thumb0}{20,0,0,100} % uu-black, hack!
+    \defineCMYKcolor{thumb1}{0,100,80,0} % uu-red
+    \defineCMYKcolor{thumb2}{30,100,40,10} % uu-burgundy
+    \defineCMYKcolor{thumb3}{0,50,65,0} % uu-orange
+    \defineCMYKcolor{thumb4}{75,8,50,0} % uu-green
+    \defineCMYKcolor{thumb5}{70,40,0,0} % uu-blue
+    \defineCMYKcolor{thumb6}{80,100,0,0} % uu-purple
+    \defineCMYKcolor{thumb7}{100,80,0,70} % uu-darkblue
+    \defineCMYKcolor{thumb8}{35,70,80,50} % uu-brown
+    \defineCMYKcolor{thumb9}{0,10,40,0} % uu-creme
+    \defineCMYKcolor{thumb10}{20,0,0,100} % uu-black
+\else
+    \definecolor{thumb0}{RGB}{0,0,0} % uu-black
+    \definecolor{thumb1}{RGB}{192,10,53} % uu-red
+    \definecolor{thumb2}{RGB}{170,21,85} % uu-burgundy
+    \definecolor{thumb3}{RGB}{243,150,94} % uu-orange
+    \definecolor{thumb4}{RGB}{36,167,147} % uu-green
+    \definecolor{thumb5}{RGB}{82,135,198} % uu-blue
+
+    \definecolor{thumb6}{RGB}{91,33,130} % uu-purple
+    \definecolor{thumb7}{RGB}{0,18,64} % uu-darkblue
+    \definecolor{thumb8}{RGB}{110,59,35} % uu-brown
+    \definecolor{thumb9}{RGB}{250,230,171} % uu-cream
+    \definecolor{thumb10}{RGB}{0,0,0} % uu-black
+
+\fi
 
 %% The lthumb command prints the current chapter number in a thumb index on the
 %% left (even) page.
@@ -411,7 +432,12 @@
             %\fill[fill=thumb,rounded corners=\thumbedge](top left) rectangle (bottom right);
             \fill[fill=thumb\arabic{colorcounter},rounded corners=\thumbedge](top left) rectangle (bottom right);
             %% Print the chapter number at the center right in the thumb index.
-            \coordinate (center right) at ($(bottom right)+(0pt,0.5\thumbheight)$);
+            %% If the number is two digit move it more to the center for printing.
+            \ifnum\value{thumbcounter}>9
+                \coordinate (center right) at ($(bottom right)+(3pt,0.5\thumbheight)$);
+            \else
+                \coordinate (center right) at ($(bottom right)+(0pt,0.5\thumbheight)$);
+            \fi
             \node at (center right)[anchor=east,inner sep=2\thumbedge]{
                 \titlefont\bfseries\color{white}
                 \fontsize{0.75\thumbheight}{0.75\thumbheight}\selectfont
@@ -437,7 +463,12 @@
             %\fill[fill=thumb,rounded corners=\thumbedge](top right) rectangle (bottom left);
             \fill[fill=thumb\arabic{colorcounter},rounded corners=\thumbedge](top right) rectangle (bottom left);
             %% Print the chapter number at the center right in the thumb index.
-            \coordinate (center left) at ($(bottom left)+(0pt,0.5\thumbheight)$);
+            %% If the number is two digit move it more to the center for printing.
+            \ifnum\value{thumbcounter}>9
+                \coordinate (center left) at ($(bottom left)+(-3pt,0.5\thumbheight)$);
+            \else
+                \coordinate (center left) at ($(bottom left)+(0pt,0.5\thumbheight)$);
+            \fi
             \node at (center left)[anchor=west,inner sep=2\thumbedge]{
                 \titlefont\bfseries\color{white}
                 \fontsize{0.75\thumbheight}{0.75\thumbheight}\selectfont
@@ -534,7 +565,7 @@
 %% in the title color.
 \titleformat{\section}
     {\Large\headerstyle}
-    {\bfseries\thesection.\ }
+    {\bfseries\thesection\ }
     {0pt}
     {\color{thumb\arabic{colorcounter}}}
 %% Sections are preceded by an empty line.
@@ -547,7 +578,7 @@
 %% font.
 \titleformat{\subsection}
     {\large\headerstyle}
-    {\bfseries\thesubsection.\ }
+    {\bfseries\thesubsection\ }
     {0pt}
     {\color{thumb\arabic{colorcounter}}}
 \titlespacing{\subsection}{0pt}{\baselineskip}{0pt}

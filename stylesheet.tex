@@ -74,6 +74,22 @@
 
 \usepackage{csquotes}
 
+%% To have page filling vertical images always oriented to the center
+%% we turn them around if needed. packages used for oddpage.
+\usepackage{ifthen,changepage}
+
+%%Example use:
+%\begin{figure}
+%	\centering
+%    \checkoddpage
+%    \ifthenelse{\boolean{oddpage}}{
+%        \centerline{\includegraphics[width=1.0\textheight,angle=90,origin=c]{PATH}}    
+%    }{
+%        \centerline{\includegraphics[width=1.0\textheight,angle=270,origin=c]{PATH}}  
+%    }
+%	\caption{Caption}
+%	\label{Figure}
+%\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% ~~~~ PDF Settings
 
@@ -133,6 +149,9 @@
 % Better enumeration
 %\usepackage[inline]{enumitem}
 
+%%% set space between items and paragraphs for lists
+% \setlist[itemize]{parsep=0.0pt}
+\setlist{parsep=2pt}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -238,7 +257,7 @@
 \renewcommand{\cftpartpresnum}{\hypersetup{linkcolor=thumb\arabic{colorcounter}}}
 
 \titlecontents{part}%
-[0pt]{\color{thumb\arabic{colorcounter}}\bfseries\large\protect\addvspace{10pt}\titlerule[1pt]\addvspace{1.3ex}}
+[0pt]{\stepcounter{colorcounter}\color{thumb\arabic{colorcounter}}\bfseries\large\protect\addvspace{10pt}\titlerule[1pt]\addvspace{1.3ex}}
 {}{\partname~}
 {\hfill\contentspage}%
 [\addvspace{0.7ex} {\titlerule[1pt]} \addvspace{5pt}]%

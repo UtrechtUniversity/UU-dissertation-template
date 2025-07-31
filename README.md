@@ -85,6 +85,12 @@ As this is an ongoing project, the works in progress (WIP) are explicitly listed
 
 ```
 
+## Showcase: examples of theses based on this template
+
+* Laurens Stoop - Data Driven Understanding of Energy-Meteorological Variability and its Impact on Energy System Operations - https://doi.org/10.33540/677
+* Roel Brouwer - The Power of Scheduling: the Scheduling of Power - [https://doi.org/10.33540/2969](https://doi.org/10.33540/2311) (in black and white)
+* Alexander Melchior - Modelling for Policy is More Than Policy Modelling - https://doi.org/10.33540/2969
+
 
 ## License
 

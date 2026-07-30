@@ -21,6 +21,7 @@ pdflatex main
 ```
 
 Or by selecting the 'pdfLaTeX' and 'Biber' options in your favourite TeX editing program, respectively.
+Yet another option (which may be relevant for R/Python users) is to open the template in RStudio/Positron, navigate to the terminal, and run `make`.
 
 A sample document, as well as documentation for template options, can be found
 in main.pdf. 
